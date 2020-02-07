@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from './action/moviesAction';
+import { getNowPlayingMovies, getTopRatedMovies } from './services';
+// Components
+import Movies from './containers/Movies';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const RootContainer = styled.div`
+	background: #999;
+	height: 100vh;
+`;
 
-export default App;
+const App = ({ temp, setNowPlaying, setTopRated }) => {
+	useEffect(() => {
+		const getData = async () => {
+			const nowPlaying = await getNowPlayingMovies();
+			const topRated = await getTopRatedMovies();
+			setNowPlaying(nowPlaying);
+			setTopRated(topRated);
+		};
+		getData();
+	}, []);
+
+	return (
+		<Router>
+			<RootContainer>
+				<Switch>
+					<Route path='/' component={Movies} />
+				</Switch>
+			</RootContainer>
+		</Router>
+	);
+};
+
+const mapStateToProps = {};
+
+const mapDispatchToProps = {
+	...actions
+};
+
+export default connect(null, mapDispatchToProps)(App);
