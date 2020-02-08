@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -27,22 +27,13 @@ const Title = styled.h1`
 	transform: translate(-50%, -50%);
 `;
 
-const ContentCarousel = ({
-	carouselItems,
-	settings,
-	imgHeight,
-	containerWidth
-}) => {
+const ContentCarousel = ({ carouselItems, settings, imgHeight, containerWidth }) => {
 	return (
 		<CarouselContainer containerWidth={containerWidth}>
 			<Slider {...settings}>
 				{carouselItems.map(item => (
 					<CarouselItemWrapper key={item.id}>
-						<img
-							src={item.backdrop_path}
-							alt={item.title}
-							height={imgHeight}
-						/>
+						<img src={item.backdrop_path} alt={item.title} height={imgHeight} />
 						<Title>{item.title}</Title>
 					</CarouselItemWrapper>
 				))}

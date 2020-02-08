@@ -1,19 +1,24 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { setHomePageContent } from '../action/uiAction';
 
 const HeaderContainer = styled.div`
 	border: 1px white solid;
 	color: white;
 `;
 
-const Header = () => {
+const Header = ({ setHomePageContent }) => {
 	return (
 		<HeaderContainer>
-			<Link to='/serials'>serials</Link>
-			<Link to='/'>movies</Link>
+			<a onClick={setHomePageContent.bind(this, 'serials')}>serials</a>
+			<a onClick={setHomePageContent.bind(this, 'movies')}>movies</a>
 		</HeaderContainer>
 	);
 };
 
-export default Header;
+const mapDispatchToProps = {
+	setHomePageContent
+};
+
+export default connect(null, mapDispatchToProps)(Header);

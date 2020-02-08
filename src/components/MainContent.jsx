@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import styled, { keyframes } from 'styled-components';
 // Components
 import Carousel from './Carousel';
@@ -50,19 +51,25 @@ const topRatedSettings = {
 	slidesToScroll: 1
 };
 
-const MainContent = ({ nowPlaying, topRated }) => {
+const MainContent = ({
+	nowPlayingMovies,
+	topRatedMovies,
+	onTheAirSerials,
+	topRatedSerials,
+	homePageContent
+}) => {
 	return (
 		<MainContentContainer>
 			<Title>new releases</Title>
 			<Carousel
-				carouselItems={nowPlaying}
+				carouselItems={homePageContent === 'movies' ? nowPlayingMovies : onTheAirSerials}
 				imgHeight='400px'
 				containerWidth='auto'
 				settings={newReleasesSettings}
 			/>
 			<SubTitle>top rated</SubTitle>
 			<Carousel
-				carouselItems={topRated}
+				carouselItems={homePageContent === 'movies' ? topRatedMovies : topRatedSerials}
 				imgHeight='200px'
 				containerWidth='75%'
 				settings={topRatedSettings}
@@ -71,4 +78,12 @@ const MainContent = ({ nowPlaying, topRated }) => {
 	);
 };
 
-export default MainContent;
+const mapStateToProps = state => ({
+	nowPlayingMovies: state.movies.nowPlaying,
+	topRatedMovies: state.movies.topRated,
+	onTheAirSerials: state.serials.onTheAir,
+	topRatedSerials: state.serials.topRated,
+	homePageContent: state.ui.homePageContent
+});
+
+export default connect(mapStateToProps)(MainContent);

@@ -11,8 +11,7 @@ import {
 	getTopRatedSerials
 } from './services';
 // Components
-import Movies from './containers/Movies';
-import Serials from './containers/Serials';
+import Home from './containers/Home';
 
 const RootContainer = styled.div`
 	background: #999;
@@ -43,8 +42,7 @@ const App = ({
 		<Router>
 			<RootContainer>
 				<Switch>
-					<Route exact path='/' component={Movies} />
-					<Route path='/serials' component={Serials} />
+					<Route exact path='/' component={Home} />
 				</Switch>
 			</RootContainer>
 		</Router>

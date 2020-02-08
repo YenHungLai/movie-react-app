@@ -7,20 +7,20 @@ import RightDrawer from '../components/RightDrawer';
 import Header from '../components/Header';
 import MainContent from '../components/MainContent';
 
-const Serials = ({ onTheAir, topRated }) => {
+const Movies = ({ nowPlaying, topRated }) => {
 	return (
 		<BaseContainer>
 			<Header />
 			<LeftDrawer />
 			<RightDrawer />
-			<MainContent nowPlaying={onTheAir} topRated={topRated} />
+			<MainContent />
 		</BaseContainer>
 	);
 };
 
 const mapStateToProps = state => ({
-	onTheAir: state.serials.onTheAir,
-	topRated: state.serials.topRated
+	nowPlaying: state.movies.nowPlaying,
+	topRated: state.movies.topRated
 });
 
-export default connect(mapStateToProps)(Serials);
+export default connect(mapStateToProps)(Movies);
