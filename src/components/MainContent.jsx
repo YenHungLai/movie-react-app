@@ -58,18 +58,21 @@ const MainContent = ({
 	topRatedSerials,
 	homePageContent
 }) => {
+	const newReleases = homePageContent === 'movies' ? nowPlayingMovies : onTheAirSerials;
+	const topRated = homePageContent === 'movies' ? topRatedMovies : topRatedSerials;
+
 	return (
 		<MainContentContainer>
 			<Title>new releases</Title>
 			<Carousel
-				carouselItems={homePageContent === 'movies' ? nowPlayingMovies : onTheAirSerials}
+				carouselItems={newReleases}
 				imgHeight='400px'
 				containerWidth='auto'
 				settings={newReleasesSettings}
 			/>
 			<SubTitle>top rated</SubTitle>
 			<Carousel
-				carouselItems={homePageContent === 'movies' ? topRatedMovies : topRatedSerials}
+				carouselItems={topRated}
 				imgHeight='200px'
 				containerWidth='75%'
 				settings={topRatedSettings}

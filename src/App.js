@@ -12,6 +12,7 @@ import {
 } from './services';
 // Components
 import Home from './containers/Home';
+import FullscreenList from './containers/FullscreenList';
 
 const RootContainer = styled.div`
 	background: #999;
@@ -43,6 +44,7 @@ const App = ({
 			<RootContainer>
 				<Switch>
 					<Route exact path='/' component={Home} />
+					<Route path='/test' component={FullscreenList} />
 				</Switch>
 			</RootContainer>
 		</Router>
