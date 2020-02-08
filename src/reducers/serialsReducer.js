@@ -1,18 +1,18 @@
 const INITIAL_STATE = {
-	nowPlaying: [],
+	onTheAir: [],
 	popular: [],
 	topRated: [],
 	upComing: []
 };
 
-const moviesReducer = (state = INITIAL_STATE, { type, payload }) => {
+const serialsReducer = (state = INITIAL_STATE, { type, payload }) => {
 	switch (type) {
-		case 'SET_NOW_PLAYING_MOVIES':
+		case 'SET_ON_THE_AIR_SERIALS':
 			return {
 				...state,
-				nowPlaying: payload
+				onTheAir: payload
 			};
-		case 'SET_TOP_RATED_MOVIES':
+		case 'SET_TOP_RATED_SERIALS':
 			return {
 				...state,
 				topRated: payload
@@ -22,4 +22,4 @@ const moviesReducer = (state = INITIAL_STATE, { type, payload }) => {
 	}
 };
 
-export default moviesReducer;
+export default serialsReducer;

@@ -63,9 +63,9 @@ const MainContent = ({ nowPlaying, topRated }) => {
 			<SubTitle>top rated</SubTitle>
 			<Carousel
 				carouselItems={topRated}
-				settings={topRatedSettings}
 				imgHeight='200px'
 				containerWidth='75%'
+				settings={topRatedSettings}
 			/>
 		</MainContentContainer>
 	);

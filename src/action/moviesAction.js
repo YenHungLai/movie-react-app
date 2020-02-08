@@ -1,13 +1,13 @@
-export const setNowPlaying = payload => {
+export const setNowPlayingMovies = payload => {
 	return {
-		type: 'SET_NOW_PLAYING',
+		type: 'SET_NOW_PLAYING_MOVIES',
 		payload
 	};
 };
 
-export const setTopRated = payload => {
+export const setTopRatedMovies = payload => {
 	return {
-		type: 'SET_TOP_RATED',
+		type: 'SET_TOP_RATED_MOVIES',
 		payload
 	};
 };
