@@ -11,7 +11,7 @@ import MainContent from '../components/MainContent';
 const HomeContainer = styled(BaseContainer)`
 	display: grid;
 	grid-template-columns: 15% 70% 15%;
-	grid-template-rows: 8% 92%;
+	grid-template-rows: 50px 1fr;
 `;
 
 const Home = ({ nowPlaying, topRated }) => {

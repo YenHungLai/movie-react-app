@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { connect } from 'react-redux';
 import styled, { keyframes } from 'styled-components';
 // Components
 import Carousel from './Carousel';
 
 const MainContentContainer = styled.div`
+	padding: 1em 0.5em;
 	border: 1px white solid;
 	background-color: #353e47;
 	color: white;
@@ -12,27 +13,32 @@ const MainContentContainer = styled.div`
 	grid-row: 2 / 3;
 `;
 
-const fadeIn = keyframes`
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
+const FlexContainer = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 `;
 
 const Title = styled.h1`
-	margin: 0;
-	color: white;
 	text-transform: capitalize;
-	// Testing
-	animation: ${fadeIn} 2s ease-in;
+	margin-bottom: 0.5em;
 `;
 
 const SubTitle = styled.h2`
-	margin: 0;
-	color: white;
 	text-transform: capitalize;
+	margin-bottom: 0.5em;
+`;
+
+const ControlWrapper = styled.div`
+	& > button {
+		background-color: transparent;
+		border: none;
+		color: white;
+		cursor: pointer;
+	}
+	& i {
+		pointer-events: none;
+	}
 `;
 
 const newReleasesSettings = {
@@ -58,24 +64,45 @@ const MainContent = ({
 	topRatedSerials,
 	homePageContent
 }) => {
-	const newReleases = homePageContent === 'movies' ? nowPlayingMovies : onTheAirSerials;
-	const topRated = homePageContent === 'movies' ? topRatedMovies : topRatedSerials;
+	const sliderRef = useRef();
+
+	const handleClick = e => {
+		if (e.target.id === 'next') sliderRef.current.slickNext();
+		else sliderRef.current.slickPrev();
+	};
+
+	const newReleases =
+		homePageContent === 'movies' ? nowPlayingMovies : onTheAirSerials;
+	const topRated =
+		homePageContent === 'movies' ? topRatedMovies : topRatedSerials;
 
 	return (
 		<MainContentContainer>
-			<Title>new releases</Title>
+			<FlexContainer>
+				<Title>new releases</Title>
+			</FlexContainer>
 			<Carousel
 				carouselItems={newReleases}
-				imgHeight='400px'
-				containerWidth='auto'
+				containerWidth='100%'
 				settings={newReleasesSettings}
+				sliderRef={sliderRef}
 			/>
-			<SubTitle>top rated</SubTitle>
+			<FlexContainer>
+				<SubTitle>top rated</SubTitle>
+				<ControlWrapper>
+					<button id='prev' onClick={handleClick}>
+						<i className='fas fa-angle-left fa-2x'></i>
+					</button>
+					<button id='next' onClick={handleClick}>
+						<i className='fas fa-angle-right fa-2x'></i>
+					</button>
+				</ControlWrapper>
+			</FlexContainer>
 			<Carousel
 				carouselItems={topRated}
-				imgHeight='200px'
-				containerWidth='75%'
+				containerWidth='100%'
 				settings={topRatedSettings}
+				sliderRef={sliderRef}
 			/>
 		</MainContentContainer>
 	);

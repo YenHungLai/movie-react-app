@@ -16,7 +16,7 @@ import FullscreenList from './containers/FullscreenList';
 
 const RootContainer = styled.div`
 	background: #999;
-	height: 100vh;
+	padding: 1em 0;
 `;
 
 const App = ({

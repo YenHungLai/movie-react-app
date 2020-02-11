@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { setHomePageContent } from '../action/uiAction';
 
 const NavbarContainer = styled.div`
+	flex: 0.8;
 	display: flex;
 	justify-content: space-around;
 `;

@@ -4,8 +4,11 @@ import styled from 'styled-components';
 import { setHomePageContent } from '../action/uiAction';
 // Components
 import Navbar from './Navbar';
+import Search from './Search';
 
 const HeaderContainer = styled.div`
+	display: flex;
+	align-items: center;
 	border: 1px white solid;
 	color: white;
 `;
@@ -13,6 +16,7 @@ const HeaderContainer = styled.div`
 const Header = ({ setHomePageContent }) => {
 	return (
 		<HeaderContainer>
+			<Search />
 			<Navbar />
 		</HeaderContainer>
 	);

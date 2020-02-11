@@ -15,9 +15,6 @@ const CarouselItemWrapper = styled.div`
 	& > img {
 		margin: auto;
 	}
-	/* & > img:hover {
-		transform: scale(1.1);
-	} */
 `;
 
 const Title = styled.h1`
@@ -27,13 +24,22 @@ const Title = styled.h1`
 	transform: translate(-50%, -50%);
 `;
 
-const ContentCarousel = ({ carouselItems, settings, imgHeight, containerWidth }) => {
+const ContentCarousel = ({
+	carouselItems,
+	settings,
+	containerWidth,
+	sliderRef
+}) => {
 	return (
 		<CarouselContainer containerWidth={containerWidth}>
-			<Slider {...settings}>
+			<Slider ref={sliderRef} {...settings}>
 				{carouselItems.map(item => (
 					<CarouselItemWrapper key={item.id}>
-						<img src={item.backdrop_path} alt={item.title} height={imgHeight} />
+						<img
+							src={item.backdrop_path}
+							alt={item.title}
+							width='90%'
+						/>
 						<Title>{item.title}</Title>
 					</CarouselItemWrapper>
 				))}
