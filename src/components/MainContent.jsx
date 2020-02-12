@@ -10,6 +10,9 @@ const MainContentContainer = styled.div`
 	color: white;
 	grid-column: 1 / 2;
 	grid-row: 2 / 3;
+	transition: padding 0.2s ease-in;
+	padding-left: ${({ showLeftDrawer }) =>
+		showLeftDrawer ? '16em' : '0.5em'};
 `;
 
 const FlexContainer = styled.div`
@@ -30,10 +33,7 @@ const SubTitle = styled.h2`
 
 const ControlWrapper = styled.div`
 	& > button {
-		background-color: transparent;
-		border: none;
 		color: white;
-		cursor: pointer;
 	}
 	& i {
 		pointer-events: none;
@@ -61,7 +61,8 @@ const MainContent = ({
 	topRatedMovies,
 	onTheAirSerials,
 	topRatedSerials,
-	homePageContent
+	homePageContent,
+	showLeftDrawer
 }) => {
 	const sliderRef = useRef();
 
@@ -76,7 +77,7 @@ const MainContent = ({
 		homePageContent === 'movies' ? topRatedMovies : topRatedSerials;
 
 	return (
-		<MainContentContainer>
+		<MainContentContainer showLeftDrawer={showLeftDrawer}>
 			<FlexContainer>
 				<Title>new releases</Title>
 			</FlexContainer>
@@ -112,7 +113,8 @@ const mapStateToProps = state => ({
 	topRatedMovies: state.movies.topRated,
 	onTheAirSerials: state.serials.onTheAir,
 	topRatedSerials: state.serials.topRated,
-	homePageContent: state.ui.homePageContent
+	homePageContent: state.ui.homePageContent,
+	showLeftDrawer: state.ui.showLeftDrawer
 });
 
 export default connect(mapStateToProps)(MainContent);

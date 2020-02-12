@@ -12,11 +12,13 @@ const HeaderContainer = styled.div`
 	align-items: center;
 	color: #999;
 	padding: 0 1em;
+	transition: padding 0.2s ease-in;
+	padding-left: ${({ showLeftDrawer }) => (showLeftDrawer ? '14em' : '1em')};
 `;
 
-const Header = ({ setHomePageContent }) => {
+const Header = ({ showLeftDrawer }) => {
 	return (
-		<HeaderContainer>
+		<HeaderContainer showLeftDrawer={showLeftDrawer}>
 			<HamburgerMenu />
 			<Search />
 			<Navbar />
@@ -24,8 +26,12 @@ const Header = ({ setHomePageContent }) => {
 	);
 };
 
+const mapStateToProps = state => ({
+	showLeftDrawer: state.ui.showLeftDrawer
+});
+
 const mapDispatchToProps = {
 	setHomePageContent
 };
 
-export default connect(null, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

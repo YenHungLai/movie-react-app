@@ -12,6 +12,13 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+button {
+	background-color: transparent;
+	outline: none;
+	border: none;
+	cursor: pointer;
+}
+
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
 		monospace;

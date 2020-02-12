@@ -13,7 +13,8 @@ const NavLink = styled.a`
 	color: ${({ active }) => (active ? '#66c5da' : 'inherit')};
 	font-weight: bold;
 	text-transform: capitalize;
-	transition: color 1s ease-in;
+	transition: color 0.3s ease-out;
+	cursor: pointer;
 `;
 
 const Navbar = ({ homePageContent, setHomePageContent }) => {

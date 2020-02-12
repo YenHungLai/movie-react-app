@@ -18,6 +18,7 @@ const Home = ({ nowPlaying, topRated }) => {
 	return (
 		<HomeContainer>
 			<Header />
+			<LeftDrawer />
 			<RightDrawer />
 			<MainContent />
 		</HomeContainer>

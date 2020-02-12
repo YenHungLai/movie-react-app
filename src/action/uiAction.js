@@ -4,3 +4,10 @@ export const setHomePageContent = payload => {
 		payload
 	};
 };
+
+export const setShowLeftDrawer = payload => {
+	return {
+		type: 'SET_SHOW_LEFT_DRAWER',
+		payload
+	};
+};
