@@ -5,7 +5,7 @@ const RightDrawerContainer = styled.div`
 	border: 1px white solid;
 	color: white;
 	grid-row: 1 / 3;
-	grid-column: 3 / span 1;
+	grid-column: 2 / span 1;
 `;
 
 const RightDrawer = () => {

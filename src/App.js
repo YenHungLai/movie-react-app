@@ -1,3 +1,9 @@
+/**
+ * TODO:
+ * - Implement left drawer
+ * - Implement search bar
+ * - Movie details page
+ */
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';

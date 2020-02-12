@@ -10,7 +10,7 @@ import MainContent from '../components/MainContent';
 
 const HomeContainer = styled(BaseContainer)`
 	display: grid;
-	grid-template-columns: 15% 70% 15%;
+	grid-template-columns: 85% 15%;
 	grid-template-rows: 50px 1fr;
 `;
 
@@ -18,7 +18,6 @@ const Home = ({ nowPlaying, topRated }) => {
 	return (
 		<HomeContainer>
 			<Header />
-			<LeftDrawer />
 			<RightDrawer />
 			<MainContent />
 		</HomeContainer>

@@ -4,9 +4,7 @@ const BaseContainer = styled.div`
 	background-color: #08090a;
 	min-height: 98vh;
 	width: 95vw;
-	position: relative;
-	left: 50%;
-	transform: translateX(-50%);
+	margin: auto;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 `;
 

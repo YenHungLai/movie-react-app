@@ -6,10 +6,9 @@ import Carousel from './Carousel';
 
 const MainContentContainer = styled.div`
 	padding: 1em 0.5em;
-	border: 1px white solid;
 	background-color: #353e47;
 	color: white;
-	grid-column: 2 / 3;
+	grid-column: 1 / 2;
 	grid-row: 2 / 3;
 `;
 
