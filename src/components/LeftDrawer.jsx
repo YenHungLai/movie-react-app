@@ -23,23 +23,55 @@ const CloseBtn = styled.button`
 	right: 10px;
 `;
 
-const LeftDrawer = ({ showLeftDrawer, setShowLeftDrawer }) => {
+const ContentContainer = styled.div`
+	margin-top: 2em;
+`;
+
+const Title = styled.p`
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-bottom: 7px;
+`;
+
+const NavContainer = styled.nav`
+	display: flex;
+	flex-direction: column;
+`;
+
+const NavLinks = styled.a`
+	color: #999;
+	margin-bottom: 5px;
+	text-transform: capitalize;
+`;
+
+const LeftDrawer = ({ showLeftDrawer, setShowLeftDrawer, homePageContent }) => {
 	const handleClick = () => {
 		setShowLeftDrawer(false);
 	};
-	console.log(showLeftDrawer);
+
 	return (
 		<LeftDrawerContainer showLeftDrawer={showLeftDrawer} test id='test'>
 			<h2>LEFT DRAWER</h2>
 			<CloseBtn onClick={handleClick}>
 				<i className='fas fa-chevron-left fa-lg'></i>
 			</CloseBtn>
+			<ContentContainer>
+				<Title>categories</Title>
+				<NavContainer>
+					<NavLinks>new releases</NavLinks>
+					<NavLinks>coming soon</NavLinks>
+					<NavLinks>popular {homePageContent}</NavLinks>
+					<NavLinks>trailers</NavLinks>
+					<NavLinks>genres</NavLinks>
+				</NavContainer>
+			</ContentContainer>
 		</LeftDrawerContainer>
 	);
 };
 
 const mapStateToProps = state => ({
-	showLeftDrawer: state.ui.showLeftDrawer
+	showLeftDrawer: state.ui.showLeftDrawer,
+	homePageContent: state.ui.homePageContent
 });
 
 const mapDispatchToProps = {

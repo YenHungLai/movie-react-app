@@ -11,8 +11,7 @@ const MainContentContainer = styled.div`
 	grid-column: 1 / 2;
 	grid-row: 2 / 3;
 	transition: padding 0.2s ease-in;
-	padding-left: ${({ showLeftDrawer }) =>
-		showLeftDrawer ? '16em' : '0.5em'};
+	padding-left: ${({ showLeftDrawer }) => (showLeftDrawer ? '16em' : '0.5em')};
 `;
 
 const FlexContainer = styled.div`
@@ -32,11 +31,20 @@ const SubTitle = styled.h2`
 `;
 
 const ControlWrapper = styled.div`
-	& > button {
-		color: white;
+	display: flex;
+	& > button:first-child:active {
+		transform: translateX(-1px);
+	}
+	& > button:last-child:active {
+		transform: translateX(1px);
 	}
 	& i {
+		color: white;
 		pointer-events: none;
+	}
+	& > span {
+		border-left: #999 1px solid;
+		margin: 0 7px;
 	}
 `;
 
@@ -71,10 +79,8 @@ const MainContent = ({
 		else sliderRef.current.slickPrev();
 	};
 
-	const newReleases =
-		homePageContent === 'movies' ? nowPlayingMovies : onTheAirSerials;
-	const topRated =
-		homePageContent === 'movies' ? topRatedMovies : topRatedSerials;
+	const newReleases = homePageContent === 'movies' ? nowPlayingMovies : onTheAirSerials;
+	const topRated = homePageContent === 'movies' ? topRatedMovies : topRatedSerials;
 
 	return (
 		<MainContentContainer showLeftDrawer={showLeftDrawer}>
@@ -93,6 +99,7 @@ const MainContent = ({
 					<button id='prev' onClick={handleClick}>
 						<i className='fas fa-angle-left fa-2x'></i>
 					</button>
+					<span></span>
 					<button id='next' onClick={handleClick}>
 						<i className='fas fa-angle-right fa-2x'></i>
 					</button>
