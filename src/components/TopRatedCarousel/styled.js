@@ -13,11 +13,10 @@ const CarouselItemWrapper = styled.div`
 	}
 `;
 
-const Title = styled.h1`
+const Title = styled.strong`
 	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
+	left: 35px;
+	bottom: 15px;
 `;
 
 export { CarouselContainer, CarouselItemWrapper, Title };

@@ -31,7 +31,7 @@ const NewReleasesCarousel = ({ carouselItems, containerWidth }) => {
 							alt={item.title}
 							width='90%'
 						/>
-						<Title>{item.title}</Title>
+						<Title>{item.title || item.name}</Title>
 						<WatchTrailer>
 							<Link
 								to={`/trailer/${item.trailer.id}/${item.trailer.key}/${item.trailer.size}`}
@@ -45,7 +45,9 @@ const NewReleasesCarousel = ({ carouselItems, containerWidth }) => {
 						</WatchTrailer>
 						<ReleaseDate>
 							<p>release date</p>
-							<small>{item.release_date}</small>
+							<small>
+								{item.release_date || item.first_air_date}
+							</small>
 						</ReleaseDate>
 					</CarouselItemWrapper>
 				))}
