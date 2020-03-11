@@ -1,12 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-	CarouselContainer,
-	CarouselItemWrapper,
-	Title,
-	ReleaseDate,
-	WatchTrailer
-} from './styled';
+import { CarouselContainer, CarouselItemWrapper, Title, ReleaseDate, WatchTrailer } from './styled';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -20,17 +14,12 @@ const settings = {
 };
 
 const NewReleasesCarousel = ({ carouselItems, containerWidth }) => {
-	console.log(carouselItems);
 	return (
 		<CarouselContainer containerWidth={containerWidth}>
 			<Slider {...settings}>
 				{carouselItems.map(item => (
 					<CarouselItemWrapper key={item.id}>
-						<img
-							src={item.backdrop_path}
-							alt={item.title}
-							width='90%'
-						/>
+						<img src={item.backdrop_path} alt={item.title} width='90%' />
 						<Title>{item.title || item.name}</Title>
 						<WatchTrailer>
 							<Link
@@ -45,9 +34,7 @@ const NewReleasesCarousel = ({ carouselItems, containerWidth }) => {
 						</WatchTrailer>
 						<ReleaseDate>
 							<p>release date</p>
-							<small>
-								{item.release_date || item.first_air_date}
-							</small>
+							<small>{item.release_date || item.first_air_date}</small>
 						</ReleaseDate>
 					</CarouselItemWrapper>
 				))}

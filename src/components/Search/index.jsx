@@ -6,12 +6,11 @@ const Suggestions = ({ contentPool, query }) => {
 	let results;
 	if (query !== '')
 		results = contentPool.filter(item => {
-			if (item.hasOwnProperty('title'))
-				return item.title.toLowerCase().includes(query);
+			if (item.hasOwnProperty('title')) return item.title.toLowerCase().includes(query);
 			return item.name.toLowerCase().includes(query);
 		});
 	else results = [];
-	console.log(results);
+	// console.log(results);
 
 	return (
 		<SuggestionsContainer>
@@ -37,11 +36,7 @@ const Search = props => {
 	return (
 		<SearchContainer>
 			<i className='fas fa-search'></i>
-			<MovieSearch
-				onChange={handleChange}
-				type='text'
-				placeholder='Search'
-			/>
+			<MovieSearch onChange={handleChange} type='text' placeholder='Search' />
 			<Suggestions {...props} query={state} />
 		</SearchContainer>
 	);

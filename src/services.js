@@ -64,12 +64,16 @@ export const getOnTheAirSerials = async () => {
 	// Add trailer info.
 	const promises = results.map(async item => {
 		const {
-			data: { results }
+			data: { results: trailerRes }
 		} = await axios.get(
 			`${PATH_BASE}${PATH_TV}/${item.id}${PATH_VIDEOS}?api_key=${API_KEY}&language=en-US`
 		);
+		const { data: detailsRes } = await axios.get(
+			`${PATH_BASE}${PATH_TV}/${item.id}?api_key=${API_KEY}&language=en-US`
+		);
+
 		// TODO: how to handle empty data, set default value?
-		const trailer = results.find(item => item.type === 'Trailer') ||
+		const trailer = trailerRes.find(item => item.type === 'Trailer') ||
 			results[0] || {
 				id: null,
 				key: null,
@@ -80,7 +84,9 @@ export const getOnTheAirSerials = async () => {
 			...item,
 			poster_path: `${IMG_BASE}${IMG_SIZE}${item.poster_path}`,
 			backdrop_path: `${IMG_BASE}${IMG_SIZE}${item.backdrop_path}`,
-			trailer
+			trailer,
+			seasonsNum: detailsRes.number_of_seasons,
+			episodesNum: detailsRes.number_of_episodes
 		};
 	});
 

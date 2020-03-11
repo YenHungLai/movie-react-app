@@ -19,4 +19,14 @@ const Title = styled.strong`
 	bottom: 15px;
 `;
 
-export { CarouselContainer, CarouselItemWrapper, Title };
+const Rating = styled.div`
+	position: absolute;
+	right: 35px;
+	bottom: 15px;
+	& > i {
+		color: #6decf9;
+		margin-left: 5px;
+	}
+`;
+
+export { CarouselContainer, CarouselItemWrapper, Title, Rating };
