@@ -1,11 +1,5 @@
 import React, { useRef } from 'react';
-import {
-	MainContentContainer,
-	FlexContainer,
-	Title,
-	SubTitle,
-	ControlWrapper
-} from './styled';
+import { MainContentContainer, FlexContainer, Title, SubTitle, ControlWrapper } from './styled';
 import { connect } from 'react-redux';
 // Components
 import NewReleasesCarousel from '../NewReleasesCarousel';
@@ -26,10 +20,8 @@ const MainContent = ({
 		else sliderRef.current.slickPrev();
 	};
 
-	const newReleases =
-		homePageContent === 'movies' ? nowPlayingMovies : onTheAirSerials;
-	const topRated =
-		homePageContent === 'movies' ? topRatedMovies : topRatedSerials;
+	const newReleases = homePageContent === 'movies' ? nowPlayingMovies : onTheAirSerials;
+	const topRated = homePageContent === 'movies' ? topRatedMovies : topRatedSerials;
 
 	return (
 		<MainContentContainer showLeftDrawer={showLeftDrawer}>
@@ -39,6 +31,7 @@ const MainContent = ({
 			<NewReleasesCarousel
 				carouselItems={newReleases}
 				containerWidth='100%'
+				type={homePageContent}
 			/>
 			<FlexContainer>
 				<SubTitle>top rated</SubTitle>

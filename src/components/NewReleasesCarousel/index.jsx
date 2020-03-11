@@ -13,7 +13,7 @@ const settings = {
 	slidesToScroll: 1
 };
 
-const NewReleasesCarousel = ({ carouselItems, containerWidth }) => {
+const NewReleasesCarousel = ({ carouselItems, containerWidth, type }) => {
 	return (
 		<CarouselContainer containerWidth={containerWidth}>
 			<Slider {...settings}>
@@ -22,9 +22,7 @@ const NewReleasesCarousel = ({ carouselItems, containerWidth }) => {
 						<img src={item.backdrop_path} alt={item.title} width='90%' />
 						<Title>{item.title || item.name}</Title>
 						<WatchTrailer>
-							<Link
-								to={`/trailer/${item.trailer.id}/${item.trailer.key}/${item.trailer.size}`}
-							>
+							<Link to={`/trailer/${type}/${item.id}`}>
 								<i className='far fa-play-circle fa-2x'></i>
 							</Link>
 							<div>

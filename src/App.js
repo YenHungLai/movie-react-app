@@ -52,10 +52,7 @@ const App = ({
 				<Switch>
 					<Route exact path='/' component={Home} />
 					<Route path='/test' component={FullscreenList} />
-					<Route
-						path='/trailer/:id/:key/:size'
-						component={FullScreenVideoPlayer}
-					/>
+					<Route path='/trailer/:type/:id' component={FullScreenVideoPlayer} />
 				</Switch>
 			</RootContainer>
 		</Router>
