@@ -1,20 +1,11 @@
 import React from 'react';
+import { HeaderContainer } from './styled';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
-import { setHomePageContent } from '../action/uiAction';
+import { setHomePageContent } from '../../action/uiAction';
 // Components
-import Navbar from './Navbar';
-import Search from './Search';
-import HamburgerMenu from './HamburgerMenu';
-
-const HeaderContainer = styled.div`
-	display: flex;
-	align-items: center;
-	color: #999;
-	padding: 0 1em;
-	transition: padding 0.2s ease-in;
-	padding-left: ${({ showLeftDrawer }) => (showLeftDrawer ? '14em' : '1em')};
-`;
+import Navbar from '../Navbar';
+import Search from '../Search';
+import HamburgerMenu from '../HamburgerMenu';
 
 const Header = ({ showLeftDrawer }) => {
 	return (

@@ -1,35 +1,18 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import { CarouselContainer, CarouselItemWrapper, Title } from './styled';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const CarouselContainer = styled.div`
-	margin: auto;
-	width: ${props => props.containerWidth};
-`;
+const settings = {
+	infinite: true,
+	arrows: false,
+	speed: 500,
+	slidesToShow: 2,
+	slidesToScroll: 1
+};
 
-const CarouselItemWrapper = styled.div`
-	transition: transform 0.5s ease-out;
-	position: relative;
-	& > img {
-		margin: auto;
-	}
-`;
-
-const Title = styled.h1`
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-`;
-
-const ContentCarousel = ({
-	carouselItems,
-	settings,
-	containerWidth,
-	sliderRef
-}) => {
+const TopRatedCarousel = ({ carouselItems, containerWidth, sliderRef }) => {
 	return (
 		<CarouselContainer containerWidth={containerWidth}>
 			<Slider ref={sliderRef} {...settings}>
@@ -48,4 +31,4 @@ const ContentCarousel = ({
 	);
 };
 
-export default ContentCarousel;
+export default TopRatedCarousel;

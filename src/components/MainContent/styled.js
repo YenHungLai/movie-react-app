@@ -1,0 +1,48 @@
+import styled from 'styled-components';
+
+const MainContentContainer = styled.div`
+	padding: 1em 0.5em;
+	background-color: #353e47;
+	color: white;
+	grid-column: 1 / 2;
+	grid-row: 2 / 3;
+	transition: padding 0.2s ease-in;
+	padding-left: ${({ showLeftDrawer }) =>
+		showLeftDrawer ? '16em' : '0.5em'};
+`;
+
+const FlexContainer = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+`;
+
+const Title = styled.h1`
+	text-transform: capitalize;
+	margin-bottom: 0.5em;
+`;
+
+const SubTitle = styled.h2`
+	text-transform: capitalize;
+	margin-bottom: 0.5em;
+`;
+
+const ControlWrapper = styled.div`
+	display: flex;
+	& > button:first-child:active {
+		transform: translateX(-1px);
+	}
+	& > button:last-child:active {
+		transform: translateX(1px);
+	}
+	& i {
+		color: white;
+		pointer-events: none;
+	}
+	& > span {
+		border-left: #999 1px solid;
+		margin: 0 7px;
+	}
+`;
+
+export { MainContentContainer, FlexContainer, Title, SubTitle, ControlWrapper };

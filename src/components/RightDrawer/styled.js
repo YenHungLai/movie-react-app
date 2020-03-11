@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const RightDrawerContainer = styled.div`
@@ -8,8 +7,4 @@ const RightDrawerContainer = styled.div`
 	grid-column: 2 / span 1;
 `;
 
-const RightDrawer = () => {
-	return <RightDrawerContainer>RIGHT DRAWER</RightDrawerContainer>;
-};
-
-export default RightDrawer;
+export { RightDrawerContainer };

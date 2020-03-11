@@ -19,6 +19,7 @@ import {
 // Components
 import Home from './containers/Home';
 import FullscreenList from './containers/FullscreenList';
+import FullScreenVideoPlayer from './components/FullScreenVideoPlayer';
 
 const RootContainer = styled.div`
 	background: #999;
@@ -51,6 +52,10 @@ const App = ({
 				<Switch>
 					<Route exact path='/' component={Home} />
 					<Route path='/test' component={FullscreenList} />
+					<Route
+						path='/trailer/:id/:key/:size'
+						component={FullScreenVideoPlayer}
+					/>
 				</Switch>
 			</RootContainer>
 		</Router>

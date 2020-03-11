@@ -1,21 +1,7 @@
 import React, { useRef } from 'react';
+import { NavbarContainer, NavLink } from './styled';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
-import { setHomePageContent } from '../action/uiAction';
-
-const NavbarContainer = styled.div`
-	flex: 0.8;
-	display: flex;
-	justify-content: space-around;
-`;
-
-const NavLink = styled.a`
-	color: ${({ active }) => (active ? '#66c5da' : 'inherit')};
-	font-weight: bold;
-	text-transform: capitalize;
-	transition: color 0.3s ease-out;
-	cursor: pointer;
-`;
+import { setHomePageContent } from '../../action/uiAction';
 
 const Navbar = ({ homePageContent, setHomePageContent }) => {
 	// Might need these later.

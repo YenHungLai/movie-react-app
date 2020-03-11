@@ -3,4 +3,6 @@ import logger from 'redux-logger';
 import rootReducer from '../reducers/index';
 
 // Logger must be the last middleware in chain
-export const store = createStore(rootReducer, applyMiddleware(logger));
+const store = createStore(rootReducer, applyMiddleware(logger));
+
+export default store;
