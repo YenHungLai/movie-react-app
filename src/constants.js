@@ -7,6 +7,7 @@ export const PATH_MOVIE = '/movie';
 export const PATH_POPULAR = '/popular';
 export const PATH_TOP_RATED = '/top_rated';
 export const PATH_UPCOMING = '/upcoming';
+export const PATH_LATEST = '/latest';
 export const PATH_NOWPLAYING = '/now_playing';
 export const PATH_TRENDING = '/trending';
 export const PATH_TV = '/tv';

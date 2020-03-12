@@ -10,7 +10,7 @@ import MainContent from '../components/MainContent';
 
 const HomeContainer = styled(BaseContainer)`
 	display: grid;
-	grid-template-columns: 85% 15%;
+	grid-template-columns: 80% 20%;
 	grid-template-rows: 50px 1fr;
 `;
 
