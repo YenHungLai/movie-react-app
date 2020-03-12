@@ -11,3 +11,10 @@ export const setTopRatedSerials = payload => {
 		payload
 	};
 };
+
+export const setPopularSerials = payload => {
+	return {
+		type: 'SET_POPULAR_SERIALS',
+		payload
+	};
+};

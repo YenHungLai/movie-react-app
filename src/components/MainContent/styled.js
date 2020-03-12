@@ -7,24 +7,22 @@ const MainContentContainer = styled.div`
 	grid-column: 1 / 2;
 	grid-row: 2 / 3;
 	transition: padding 0.2s ease-in;
-	padding-left: ${({ showLeftDrawer }) =>
-		showLeftDrawer ? '16em' : '0.5em'};
+	padding-left: ${({ showLeftDrawer }) => (showLeftDrawer ? '16em' : '0.5em')};
 `;
 
 const FlexContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	margin-bottom: 0.5em;
 `;
 
 const Title = styled.h1`
 	text-transform: capitalize;
-	margin-bottom: 0.5em;
 `;
 
 const SubTitle = styled.h2`
 	text-transform: capitalize;
-	margin-bottom: 0.5em;
 `;
 
 const ControlWrapper = styled.div`

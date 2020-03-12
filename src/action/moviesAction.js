@@ -11,3 +11,10 @@ export const setTopRatedMovies = payload => {
 		payload
 	};
 };
+
+export const setPopularMovies = payload => {
+	return {
+		type: 'SET_POPULAR_MOVIES',
+		payload
+	};
+};

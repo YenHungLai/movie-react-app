@@ -13,8 +13,10 @@ import * as serialsActions from './action/serialsAction';
 import {
 	getNowPlayingMovies,
 	getTopRatedMovies,
+	getPopularMovies,
 	getOnTheAirSerials,
-	getTopRatedSerials
+	getTopRatedSerials,
+	getPopularSerials
 } from './services';
 // Components
 import Home from './containers/Home';
@@ -29,19 +31,25 @@ const RootContainer = styled.div`
 const App = ({
 	setNowPlayingMovies,
 	setTopRatedMovies,
+	setPopularMovies,
 	setOnTheAirSerials,
-	setTopRatedSerials
+	setTopRatedSerials,
+	setPopularSerials
 }) => {
 	useEffect(() => {
 		const getData = async () => {
 			const nowPlayingMovies = await getNowPlayingMovies();
 			const topRatedMovies = await getTopRatedMovies();
+			const popularMovies = await getPopularMovies();
 			const onTheAirSerials = await getOnTheAirSerials();
 			const topRatedSerials = await getTopRatedSerials();
+			const popularSerials = await getPopularSerials();
 			setNowPlayingMovies(nowPlayingMovies);
 			setTopRatedMovies(topRatedMovies);
+			setPopularMovies(popularMovies);
 			setOnTheAirSerials(onTheAirSerials);
 			setTopRatedSerials(topRatedSerials);
+			setPopularSerials(popularSerials);
 		};
 		getData();
 	}, []);

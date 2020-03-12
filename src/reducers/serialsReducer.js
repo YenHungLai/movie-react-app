@@ -17,6 +17,11 @@ const serialsReducer = (state = INITIAL_STATE, { type, payload }) => {
 				...state,
 				topRated: payload
 			};
+		case 'SET_POPULAR_SERIALS':
+			return {
+				...state,
+				popular: payload
+			};
 		default:
 			return state;
 	}

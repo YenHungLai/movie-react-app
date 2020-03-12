@@ -17,6 +17,11 @@ const moviesReducer = (state = INITIAL_STATE, { type, payload }) => {
 				...state,
 				topRated: payload
 			};
+		case 'SET_POPULAR_MOVIES':
+			return {
+				...state,
+				popular: payload
+			};
 		default:
 			return state;
 	}
