@@ -7,7 +7,7 @@ const NavbarContainer = styled.div`
 `;
 
 const NavLink = styled.a`
-	color: ${({ active }) => (active ? '#66c5da' : 'inherit')};
+	color: ${({ active }) => (active ? '#8EC6CC' : 'inherit')};
 	font-weight: bold;
 	text-transform: capitalize;
 	transition: color 0.3s ease-out;

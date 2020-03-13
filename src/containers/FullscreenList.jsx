@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 // Components
-import BaseContainer from '../components/BaseContainer';
+import { BaseContainer } from '../components/shared';
 
 const FullscreenListContainer = styled(BaseContainer)`
 	padding: 1em;

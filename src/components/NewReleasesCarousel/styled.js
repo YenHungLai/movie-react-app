@@ -40,7 +40,7 @@ const WatchTrailer = styled.div`
 	bottom: 20px;
 	& i {
 		margin-right: 0.5em;
-		color: #6decf9;
+		color: #8ec6cc;
 	}
 	& p {
 		text-transform: capitalize;

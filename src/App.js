@@ -1,7 +1,5 @@
 /**
  * TODO:
- * - Implement left drawer
- * - Implement search bar
  * - Movie details page
  */
 import React, { useEffect } from 'react';
@@ -26,7 +24,7 @@ import FullScreenVideoPlayer from './components/FullScreenVideoPlayer';
 
 const RootContainer = styled.div`
 	background: #999;
-	padding: 1em 0;
+	height: 100vh;
 `;
 
 const App = ({
@@ -62,7 +60,10 @@ const App = ({
 					<Route exact path='/' component={Home} />
 					<Route path='/test' component={FullscreenList} />
 					<Route path='/:type/:id' component={FullscreenList} />
-					<Route path='/trailer/:type/:id' component={FullScreenVideoPlayer} />
+					<Route
+						path='/trailer/:type/:id'
+						component={FullScreenVideoPlayer}
+					/>
 				</Switch>
 			</RootContainer>
 		</Router>

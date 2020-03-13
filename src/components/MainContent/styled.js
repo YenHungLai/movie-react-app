@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 
 const MainContentContainer = styled.div`
-	padding: 1em 0.5em;
-	background-color: #353e47;
+	position: relative;
+	padding: 1em 0.7em;
+	background-color: #13151b;
 	color: white;
 	grid-column: 1 / 2;
 	grid-row: 2 / 3;
 	transition: padding 0.2s ease-in;
-	padding-left: ${({ showLeftDrawer }) => (showLeftDrawer ? '16em' : '0.5em')};
+	padding-left: ${({ showLeftDrawer }) =>
+		showLeftDrawer ? '16em' : '0.7em'};
 `;
 
 const FlexContainer = styled.div`
