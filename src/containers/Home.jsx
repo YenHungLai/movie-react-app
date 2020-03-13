@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 // Components
-import BaseContainer from '../components/BaseContainer';
+import { BaseContainer } from '../components/shared';
 import LeftDrawer from '../components/LeftDrawer';
 import RightDrawer from '../components/RightDrawer';
 import Header from '../components/Header';
