@@ -88,7 +88,9 @@ export const getTopRatedSerials = async () => {
 export const getPopularSerials = async () => {
 	const {
 		data: { results }
-	} = await axios.get(`${PATH_BASE}${PATH_TV}${PATH_POPULAR}?api_key=${API_KEY}&language=en-US`);
+	} = await axios.get(
+		`${PATH_BASE}${PATH_TV}${PATH_POPULAR}?api_key=${API_KEY}&language=en-US`
+	);
 
 	return results.map(item => ({
 		...item,
@@ -121,7 +123,11 @@ export const getDetails = async (id, type) => {
 		`${PATH_BASE}${PATH_VAR}/${id}?api_key=${API_KEY}&language=en-US`
 	);
 
-	return data;
+	return {
+		...data,
+		poster_path: `${IMG_BASE}/original${data.poster_path}`,
+		backdrop_path: `${IMG_BASE}/original${data.backdrop_path}`
+	};
 };
 
 export const getCredits = async (id, type) => {

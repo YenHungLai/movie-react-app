@@ -9,7 +9,7 @@ const CarouselItemWrapper = styled.div`
 	transition: transform 0.5s ease-out;
 	position: relative;
 	margin: auto;
-	& > img {
+	& img {
 		margin: auto;
 		width: 90%;
 	}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
 	CarouselContainer,
 	CarouselItemWrapper,
@@ -17,13 +18,20 @@ const settings = {
 	slidesToScroll: 1
 };
 
-const TopRatedCarousel = ({ carouselItems, containerWidth, sliderRef }) => {
+const TopRatedCarousel = ({
+	carouselItems,
+	containerWidth,
+	sliderRef,
+	type
+}) => {
 	return (
 		<CarouselContainer containerWidth={containerWidth}>
 			<Slider ref={sliderRef} {...settings}>
 				{carouselItems.map(item => (
 					<CarouselItemWrapper key={item.id}>
-						<img src={item.backdrop_path} alt={item.title} />
+						<Link to={`/${type}/${item.id}`}>
+							<img src={item.backdrop_path} alt={item.title} />
+						</Link>
 						<Title>{item.title || item.name}</Title>
 						<Rating>
 							{item.vote_average}

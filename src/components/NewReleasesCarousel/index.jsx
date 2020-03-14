@@ -35,7 +35,9 @@ const CarouselItem = ({
 	return (
 		// Image size changes, content does not stay in image.
 		<CarouselItemWrapper>
-			<img src={backdrop_path} alt={title} />
+			<Link to={`/${type}/${id}`}>
+				<img src={backdrop_path} alt={title} />
+			</Link>
 			<Title>{title || name}</Title>
 			<WatchTrailer>
 				<Link to={`/trailer/${type}/${id}`}>

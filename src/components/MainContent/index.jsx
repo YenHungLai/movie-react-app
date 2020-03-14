@@ -57,6 +57,7 @@ const MainContent = ({
 				carouselItems={topRated}
 				containerWidth='100%'
 				sliderRef={sliderRef}
+				type={homePageContent}
 			/>
 		</MainContentContainer>
 	);

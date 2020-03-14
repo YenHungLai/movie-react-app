@@ -10,7 +10,7 @@ const CarouselItemWrapper = styled.div`
 	position: relative;
 	width: 50%;
 	margin: auto;
-	& > img {
+	& img {
 		margin: auto;
 		width: 100%;
 	}
