@@ -20,6 +20,7 @@ import {
 // Components
 import Home from './containers/Home';
 import FullscreenList from './containers/FullscreenList';
+import DetailsPage from './containers/DetailsPage';
 import FullScreenVideoPlayer from './components/FullScreenVideoPlayer';
 
 const RootContainer = styled.div`
@@ -59,11 +60,8 @@ const App = ({
 				<Switch>
 					<Route exact path='/' component={Home} />
 					<Route path='/test' component={FullscreenList} />
-					<Route path='/:type/:id' component={FullscreenList} />
-					<Route
-						path='/trailer/:type/:id'
-						component={FullScreenVideoPlayer}
-					/>
+					<Route path='/:type/:id' component={DetailsPage} />
+					<Route path='/trailer/:type/:id' component={FullScreenVideoPlayer} />
 				</Switch>
 			</RootContainer>
 		</Router>

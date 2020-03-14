@@ -11,7 +11,8 @@ import {
 	PATH_TOP_RATED,
 	PATH_ON_THE_AIR,
 	PATH_TV,
-	PATH_VIDEOS
+	PATH_VIDEOS,
+	PATH_CREDITS
 } from './constants';
 
 export const getNowPlayingMovies = async () => {
@@ -87,9 +88,7 @@ export const getTopRatedSerials = async () => {
 export const getPopularSerials = async () => {
 	const {
 		data: { results }
-	} = await axios.get(
-		`${PATH_BASE}${PATH_TV}${PATH_POPULAR}?api_key=${API_KEY}&language=en-US`
-	);
+	} = await axios.get(`${PATH_BASE}${PATH_TV}${PATH_POPULAR}?api_key=${API_KEY}&language=en-US`);
 
 	return results.map(item => ({
 		...item,
@@ -120,6 +119,15 @@ export const getDetails = async (id, type) => {
 	const PATH_VAR = type === 'movies' ? PATH_MOVIE : PATH_TV;
 	const { data } = await axios.get(
 		`${PATH_BASE}${PATH_VAR}/${id}?api_key=${API_KEY}&language=en-US`
+	);
+
+	return data;
+};
+
+export const getCredits = async (id, type) => {
+	const PATH_VAR = type === 'movies' ? PATH_MOVIE : PATH_TV;
+	const { data } = await axios.get(
+		`${PATH_BASE}${PATH_VAR}/${id}${PATH_CREDITS}?api_key=${API_KEY}&language=en-US`
 	);
 
 	return data;
