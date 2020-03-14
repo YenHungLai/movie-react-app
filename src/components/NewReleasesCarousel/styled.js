@@ -8,8 +8,11 @@ const CarouselContainer = styled.div`
 const CarouselItemWrapper = styled.div`
 	transition: transform 0.5s ease-out;
 	position: relative;
+	width: 50%;
+	margin: auto;
 	& > img {
 		margin: auto;
+		width: 100%;
 	}
 `;
 

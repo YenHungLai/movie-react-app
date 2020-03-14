@@ -5,6 +5,7 @@ const ContentWrapper = styled.div`
 	& > img {
 		display: block;
 		margin: 0.5em auto;
+		height: 17vh;
 	}
 	& > p {
 		color: #999;

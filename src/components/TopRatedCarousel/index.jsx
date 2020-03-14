@@ -23,11 +23,7 @@ const TopRatedCarousel = ({ carouselItems, containerWidth, sliderRef }) => {
 			<Slider ref={sliderRef} {...settings}>
 				{carouselItems.map(item => (
 					<CarouselItemWrapper key={item.id}>
-						<img
-							src={item.backdrop_path}
-							alt={item.title}
-							width='auto'
-						/>
+						<img src={item.backdrop_path} alt={item.title} />
 						<Title>{item.title || item.name}</Title>
 						<Rating>
 							{item.vote_average}

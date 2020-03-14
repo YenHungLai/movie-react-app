@@ -14,7 +14,7 @@ const DrawerItem = ({ content, homePageContent }) => {
 
 	return (
 		<ContentWrapper>
-			<img src={backdrop_path} alt={title || name} width='95%' />
+			<img src={backdrop_path} alt={title || name} />
 			<Title>{title || name}</Title>
 			<ReleaseDate>{moment(release_date).format('DD.MM.YY')}</ReleaseDate>
 			{homePageContent === 'movies' ? (
