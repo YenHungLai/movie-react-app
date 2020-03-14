@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeaderContainer } from './styled';
+import { HeaderContainer } from './style';
 import { connect } from 'react-redux';
 import { setHomePageContent } from '../../action/uiAction';
 // Components

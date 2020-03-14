@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { RightDrawerContainer, Title } from './styled';
+import { RightDrawerContainer, Title } from './style';
 // Components
 import DrawerItem from './DrawerItem';
 
@@ -19,34 +19,19 @@ const RightDrawer = ({
 	const latests =
 		homePageContent === 'movies'
 			? nowPlayingMovies
-					.sort(
-						(a, b) =>
-							new Date(a.release_date) - new Date(b.release_date)
-					)
+					.sort((a, b) => new Date(a.release_date) - new Date(b.release_date))
 					.slice(0, 2)
 			: onTheAirSerials
-					.sort(
-						(a, b) =>
-							new Date(a.release_date) - new Date(b.release_date)
-					)
+					.sort((a, b) => new Date(a.release_date) - new Date(b.release_date))
 					.slice(0, 2);
 
 	return (
 		<RightDrawerContainer>
 			<Title>top view of today</Title>
-			{topView && (
-				<DrawerItem
-					content={topView}
-					homePageContent={homePageContent}
-				/>
-			)}
+			{topView && <DrawerItem content={topView} homePageContent={homePageContent} />}
 			<Title>latest movies</Title>
 			{latests.map(item => (
-				<DrawerItem
-					content={item}
-					homePageContent={homePageContent}
-					key={item.id}
-				/>
+				<DrawerItem content={item} homePageContent={homePageContent} key={item.id} />
 			))}
 		</RightDrawerContainer>
 	);

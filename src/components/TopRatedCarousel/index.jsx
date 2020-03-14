@@ -1,11 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-	CarouselContainer,
-	CarouselItemWrapper,
-	Title,
-	Rating
-} from './styled';
+import { CarouselContainer, CarouselItemWrapper, Title, Rating } from './style';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -18,12 +13,7 @@ const settings = {
 	slidesToScroll: 1
 };
 
-const TopRatedCarousel = ({
-	carouselItems,
-	containerWidth,
-	sliderRef,
-	type
-}) => {
+const TopRatedCarousel = ({ carouselItems, containerWidth, sliderRef, type }) => {
 	return (
 		<CarouselContainer containerWidth={containerWidth}>
 			<Slider ref={sliderRef} {...settings}>

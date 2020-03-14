@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { NavbarContainer, NavLink } from './styled';
+import { NavbarContainer, NavLink } from './style';
 import { connect } from 'react-redux';
 import { setHomePageContent } from '../../action/uiAction';
 

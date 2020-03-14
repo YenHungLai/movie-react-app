@@ -3,13 +3,7 @@ import { connect } from 'react-redux';
 // Components
 import NewReleasesCarousel from '../NewReleasesCarousel';
 import TopRatedCarousel from '../TopRatedCarousel';
-import {
-	MainContentContainer,
-	FlexContainer,
-	Title,
-	SubTitle,
-	ControlWrapper
-} from './styled';
+import { MainContentContainer, FlexContainer, Title, SubTitle, ControlWrapper } from './style';
 
 const MainContent = ({
 	nowPlayingMovies,
@@ -26,10 +20,8 @@ const MainContent = ({
 		else sliderRef.current.slickPrev();
 	};
 
-	const newReleases =
-		homePageContent === 'movies' ? nowPlayingMovies : onTheAirSerials;
-	const topRated =
-		homePageContent === 'movies' ? topRatedMovies : topRatedSerials;
+	const newReleases = homePageContent === 'movies' ? nowPlayingMovies : onTheAirSerials;
+	const topRated = homePageContent === 'movies' ? topRatedMovies : topRatedSerials;
 
 	return (
 		<MainContentContainer showLeftDrawer={showLeftDrawer}>

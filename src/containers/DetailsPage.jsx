@@ -6,7 +6,9 @@ import { getCredits, getDetails } from '../services';
 import { BaseContainer } from '../components/shared';
 
 const DetailsPageContainer = styled(BaseContainer)`
-	background: url(${({ background }) => background}) center / cover;
+	background: url(${({ background }) => background}) rgb(138, 140, 146);
+	background-size: cover;
+	background-blend-mode: multiply;
 	color: white;
 	display: flex;
 	justify-content: center;
@@ -81,23 +83,16 @@ const DetailsPage = () => {
 		});
 	}, []);
 
-	const director =
-		credits.crew && credits.crew.find(item => item.job === 'Director').name;
+	const director = credits.crew && credits.crew.find(item => item.job === 'Director').name;
 	const genres = details.genres && details.genres.map(genre => genre.name);
-	const releaseYear =
-		details.release_date && details.release_date.slice(0, 4);
-	const actors =
-		credits.cast && credits.cast.map(actor => actor.name).slice(0, 5);
+	const releaseYear = details.release_date && details.release_date.slice(0, 4);
+	const actors = credits.cast && credits.cast.map(actor => actor.name).slice(0, 5);
 	const producers =
 		credits.crew &&
-		credits.crew
-			.filter(crew => crew.job === 'Producer')
-			.map(producer => producer.name);
+		credits.crew.filter(crew => crew.job === 'Producer').map(producer => producer.name);
 	const screenplay =
 		credits.crew &&
-		credits.crew
-			.filter(crew => crew.job === 'Screenplay')
-			.map(writer => writer.name);
+		credits.crew.filter(crew => crew.job === 'Screenplay').map(writer => writer.name);
 
 	return (
 		<DetailsPageContainer background={details.backdrop_path}>

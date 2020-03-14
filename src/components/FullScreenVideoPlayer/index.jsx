@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { Container } from './styled';
+import { Container } from './style';
 import { PATH_YOUTUBE_BASE } from '../../constants';
 import { getTrailer } from '../../services';
 

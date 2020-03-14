@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SuggestionsContainer, SearchContainer, MovieSearch } from './styled';
+import { SuggestionsContainer, SearchContainer, MovieSearch } from './style';
 import { connect } from 'react-redux';
 
 const Suggestions = ({ contentPool, query }) => {

@@ -1,13 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
-import {
-	CarouselContainer,
-	CarouselItemWrapper,
-	Title,
-	ReleaseDate,
-	WatchTrailer
-} from './styled';
+import { CarouselContainer, CarouselItemWrapper, Title, ReleaseDate, WatchTrailer } from './style';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -20,15 +14,7 @@ const settings = {
 	slidesToScroll: 1
 };
 
-const CarouselItem = ({
-	backdrop_path,
-	title,
-	name,
-	type,
-	id,
-	release_date,
-	first_air_date
-}) => {
+const CarouselItem = ({ backdrop_path, title, name, type, id, release_date, first_air_date }) => {
 	// Anyway around this pattern?
 	const releaseDate = type === 'movies' ? release_date : first_air_date;
 

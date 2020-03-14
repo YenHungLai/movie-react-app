@@ -6,7 +6,7 @@ import {
 	Title,
 	NavContainer,
 	NavLinks
-} from './styled';
+} from './style';
 import { connect } from 'react-redux';
 import { setShowLeftDrawer } from '../../action/uiAction';
 

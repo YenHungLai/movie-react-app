@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import { getDetails } from '../../../services';
-import { ContentWrapper, ReleaseDate, Title } from './styles';
+import { ContentWrapper, ReleaseDate, Title } from './style';
 
 const DrawerItem = ({ content, homePageContent }) => {
 	const [details, setDetails] = useState({});
@@ -21,8 +21,7 @@ const DrawerItem = ({ content, homePageContent }) => {
 				<p>{details.runtime} minutes</p>
 			) : (
 				<p>
-					{details.number_of_seasons} seasons -{' '}
-					{details.number_of_episodes} episodes
+					{details.number_of_seasons} seasons - {details.number_of_episodes} episodes
 				</p>
 			)}
 		</ContentWrapper>
