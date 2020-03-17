@@ -2,7 +2,7 @@ const INITIAL_STATE = {
 	nowPlaying: [],
 	popular: [],
 	topRated: [],
-	upComing: []
+	upcoming: []
 };
 
 const moviesReducer = (state = INITIAL_STATE, { type, payload }) => {
@@ -21,6 +21,11 @@ const moviesReducer = (state = INITIAL_STATE, { type, payload }) => {
 			return {
 				...state,
 				popular: payload
+			};
+		case 'SET_UPCOMING_MOVIES':
+			return {
+				...state,
+				upcoming: payload
 			};
 		default:
 			return state;

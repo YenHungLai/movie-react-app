@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const LeftDrawerContainer = styled.div`
 	color: white;
@@ -35,17 +36,11 @@ const NavContainer = styled.nav`
 	flex-direction: column;
 `;
 
-const NavLinks = styled.a`
+const NavLinks = styled(Link)`
 	color: #999;
 	margin-bottom: 5px;
 	text-transform: capitalize;
+	text-decoration: none;
 `;
 
-export {
-	LeftDrawerContainer,
-	CloseBtn,
-	ContentContainer,
-	Title,
-	NavContainer,
-	NavLinks
-};
+export { LeftDrawerContainer, CloseBtn, ContentContainer, Title, NavContainer, NavLinks };

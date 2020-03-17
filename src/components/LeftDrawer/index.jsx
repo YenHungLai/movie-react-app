@@ -24,11 +24,15 @@ const LeftDrawer = ({ showLeftDrawer, setShowLeftDrawer, homePageContent }) => {
 			<ContentContainer>
 				<Title>categories</Title>
 				<NavContainer>
-					<NavLinks>new releases</NavLinks>
-					<NavLinks>coming soon</NavLinks>
-					<NavLinks>popular {homePageContent}</NavLinks>
-					<NavLinks>trailers</NavLinks>
-					<NavLinks>genres</NavLinks>
+					<NavLinks to={`/gallery/${homePageContent}/new-releases`}>
+						new releases
+					</NavLinks>
+					<NavLinks to={`/gallery/${homePageContent}/coming-soon`}>coming soon</NavLinks>
+					<NavLinks to={`/gallery/${homePageContent}/popular`}>
+						popular {homePageContent}
+					</NavLinks>
+					<NavLinks to='/gallery/trailers'>trailers</NavLinks>
+					{/* <NavLinks>genres</NavLinks> */}
 				</NavContainer>
 			</ContentContainer>
 		</LeftDrawerContainer>

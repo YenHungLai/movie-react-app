@@ -15,7 +15,8 @@ import {
 	getOnTheAirSerials,
 	getTopRatedSerials,
 	getPopularSerials,
-	getLatestMovies
+	getLatestMovies,
+	getUpComingMovies
 } from './services';
 // Components
 import Home from './containers/Home';
@@ -32,6 +33,7 @@ const App = ({
 	setNowPlayingMovies,
 	setTopRatedMovies,
 	setPopularMovies,
+	setUpcomingMovies,
 	setOnTheAirSerials,
 	setTopRatedSerials,
 	setPopularSerials
@@ -41,12 +43,14 @@ const App = ({
 			const nowPlayingMovies = await getNowPlayingMovies();
 			const topRatedMovies = await getTopRatedMovies();
 			const popularMovies = await getPopularMovies();
+			const upcomingMovies = await getUpComingMovies();
 			const onTheAirSerials = await getOnTheAirSerials();
 			const topRatedSerials = await getTopRatedSerials();
 			const popularSerials = await getPopularSerials();
 			setNowPlayingMovies(nowPlayingMovies);
 			setTopRatedMovies(topRatedMovies);
 			setPopularMovies(popularMovies);
+			setUpcomingMovies(upcomingMovies);
 			setOnTheAirSerials(onTheAirSerials);
 			setTopRatedSerials(topRatedSerials);
 			setPopularSerials(popularSerials);
@@ -59,7 +63,7 @@ const App = ({
 			<RootContainer>
 				<Switch>
 					<Route exact path='/' component={Home} />
-					<Route path='/test' component={FullscreenList} />
+					<Route path='/gallery/:type/:content' component={FullscreenList} />
 					<Route path='/:type/:id' component={DetailsPage} />
 					<Route path='/trailer/:type/:id' component={FullScreenVideoPlayer} />
 				</Switch>

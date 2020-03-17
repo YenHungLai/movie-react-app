@@ -7,6 +7,7 @@ import {
 	PATH_BASE,
 	PATH_NOWPLAYING,
 	PATH_LATEST,
+	PATH_UPCOMING,
 	PATH_POPULAR,
 	PATH_TOP_RATED,
 	PATH_ON_THE_AIR,
@@ -57,6 +58,20 @@ export const getPopularMovies = async () => {
 	}));
 };
 
+export const getUpComingMovies = async () => {
+	const {
+		data: { results }
+	} = await axios.get(
+		`${PATH_BASE}${PATH_MOVIE}${PATH_UPCOMING}?api_key=${API_KEY}&language=en-US`
+	);
+
+	return results.map(item => ({
+		...item,
+		poster_path: `${IMG_BASE}${IMG_SIZE}${item.poster_path}`,
+		backdrop_path: `${IMG_BASE}${IMG_SIZE}${item.backdrop_path}`
+	}));
+};
+
 export const getOnTheAirSerials = async () => {
 	const {
 		data: { results }
@@ -88,9 +103,7 @@ export const getTopRatedSerials = async () => {
 export const getPopularSerials = async () => {
 	const {
 		data: { results }
-	} = await axios.get(
-		`${PATH_BASE}${PATH_TV}${PATH_POPULAR}?api_key=${API_KEY}&language=en-US`
-	);
+	} = await axios.get(`${PATH_BASE}${PATH_TV}${PATH_POPULAR}?api_key=${API_KEY}&language=en-US`);
 
 	return results.map(item => ({
 		...item,

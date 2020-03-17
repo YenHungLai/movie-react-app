@@ -18,3 +18,10 @@ export const setPopularMovies = payload => {
 		payload
 	};
 };
+
+export const setUpcomingMovies = payload => {
+	return {
+		type: 'SET_UPCOMING_MOVIES',
+		payload
+	};
+};

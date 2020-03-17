@@ -1,3 +1,7 @@
+/**
+ * TODO:
+ * - Make this reuseable, pass in content pool.
+ */
 import React, { useState } from 'react';
 import { SuggestionsContainer, SearchContainer, MovieSearch } from './style';
 import { connect } from 'react-redux';
