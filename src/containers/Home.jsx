@@ -8,6 +8,7 @@ import RightDrawer from '../components/RightDrawer';
 import Header from '../components/Header';
 import MainContent from '../components/MainContent';
 
+// FIXME: re-structure layout.
 const HomeContainer = styled(BaseContainer)`
 	display: grid;
 	grid-template-columns: 80% 20%;

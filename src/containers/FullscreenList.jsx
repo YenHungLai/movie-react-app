@@ -77,6 +77,7 @@ const FullscreenList = ({
 export default connect(state => ({
 	nowPlayingMovies: state.movies.nowPlaying,
 	popularMovies: state.movies.popular,
+	upcomingMovies: state.movies.upcomingMovies,
 	onTheAirSerials: state.serials.onTheAir,
 	popularSerials: state.serials.popular
 }))(FullscreenList);

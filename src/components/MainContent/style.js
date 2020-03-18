@@ -8,15 +8,14 @@ const MainContentContainer = styled.div`
 	grid-column: 1 / 2;
 	grid-row: 2 / 3;
 	transition: padding 0.2s ease-in;
-	padding-left: ${({ showLeftDrawer }) =>
-		showLeftDrawer ? '16em' : '0.7em'};
+	padding-left: ${({ showLeftDrawer }) => (showLeftDrawer ? '17em' : '1em')};
 `;
 
 const FlexContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-bottom: 0.5em;
+	margin: 0.5em 0;
 `;
 
 const Title = styled.h1`
