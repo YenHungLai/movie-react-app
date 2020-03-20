@@ -28,7 +28,7 @@ const Navbar = ({ homePageContent, setHomePageContent }) => {
 				id='serials'
 				onClick={handleClick}
 			>
-				serials
+				series
 			</NavLink>
 		</NavbarContainer>
 	);

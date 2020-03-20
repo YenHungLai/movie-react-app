@@ -38,9 +38,16 @@ const NavContainer = styled.nav`
 
 const NavLinks = styled(Link)`
 	color: #999;
-	margin-bottom: 5px;
+	margin: 8px 0;
 	text-transform: capitalize;
 	text-decoration: none;
 `;
 
-export { LeftDrawerContainer, CloseBtn, ContentContainer, Title, NavContainer, NavLinks };
+export {
+	LeftDrawerContainer,
+	CloseBtn,
+	ContentContainer,
+	Title,
+	NavContainer,
+	NavLinks
+};

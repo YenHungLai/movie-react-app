@@ -103,7 +103,9 @@ export const getTopRatedSerials = async () => {
 export const getPopularSerials = async () => {
 	const {
 		data: { results }
-	} = await axios.get(`${PATH_BASE}${PATH_TV}${PATH_POPULAR}?api_key=${API_KEY}&language=en-US`);
+	} = await axios.get(
+		`${PATH_BASE}${PATH_TV}${PATH_POPULAR}?api_key=${API_KEY}&language=en-US`
+	);
 
 	return results.map(item => ({
 		...item,
