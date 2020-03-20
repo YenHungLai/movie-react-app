@@ -13,7 +13,12 @@ const settings = {
 	slidesToScroll: 1
 };
 
-const TopRatedCarousel = ({ carouselItems, containerWidth, sliderRef, type }) => {
+const TopRatedCarousel = ({
+	carouselItems,
+	containerWidth,
+	sliderRef,
+	type
+}) => {
 	return (
 		<CarouselContainer containerWidth={containerWidth}>
 			<Slider ref={sliderRef} {...settings}>

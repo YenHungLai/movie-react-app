@@ -15,9 +15,10 @@ const LeftDrawer = ({ showLeftDrawer, setShowLeftDrawer, homePageContent }) => {
 		setShowLeftDrawer(false);
 	};
 
+	const contentName = homePageContent === 'movies' ? 'movies' : 'series';
+
 	return (
 		<LeftDrawerContainer showLeftDrawer={showLeftDrawer} test id='test'>
-			<h2>LEFT DRAWER</h2>
 			<CloseBtn onClick={handleClick}>
 				<i className='fas fa-chevron-left fa-lg'></i>
 			</CloseBtn>
@@ -27,9 +28,11 @@ const LeftDrawer = ({ showLeftDrawer, setShowLeftDrawer, homePageContent }) => {
 					<NavLinks to={`/gallery/${homePageContent}/new-releases`}>
 						new releases
 					</NavLinks>
-					<NavLinks to={`/gallery/${homePageContent}/coming-soon`}>coming soon</NavLinks>
+					<NavLinks to={`/gallery/${homePageContent}/coming-soon`}>
+						coming soon
+					</NavLinks>
 					<NavLinks to={`/gallery/${homePageContent}/popular`}>
-						popular {homePageContent}
+						popular {contentName}
 					</NavLinks>
 					<NavLinks to='/gallery/trailers'>trailers</NavLinks>
 					{/* <NavLinks>genres</NavLinks> */}

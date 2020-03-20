@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const ContentWrapper = styled.div`
 	position: relative;
-	& > img {
+	& img {
 		display: block;
 		margin: 0.5em auto;
 		height: 17vh;
