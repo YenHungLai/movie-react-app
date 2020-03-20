@@ -18,3 +18,10 @@ export const setPopularSerials = payload => {
 		payload
 	};
 };
+
+export const setAiringTodaySerials = payload => {
+	return {
+		type: 'SET_AIRING_TODAY_SERIALS',
+		payload
+	};
+};

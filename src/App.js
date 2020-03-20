@@ -16,7 +16,8 @@ import {
 	getTopRatedSerials,
 	getPopularSerials,
 	getLatestMovies,
-	getUpComingMovies
+	getUpComingMovies,
+	getAiringTodaySerials
 } from './services';
 // Components
 import Home from './containers/Home';
@@ -36,7 +37,8 @@ const App = ({
 	setUpcomingMovies,
 	setOnTheAirSerials,
 	setTopRatedSerials,
-	setPopularSerials
+	setPopularSerials,
+	setAiringTodaySerials
 }) => {
 	useEffect(() => {
 		const getData = async () => {
@@ -47,11 +49,13 @@ const App = ({
 			const onTheAirSerials = await getOnTheAirSerials();
 			const topRatedSerials = await getTopRatedSerials();
 			const popularSerials = await getPopularSerials();
+			const airingTodaySerials = await getAiringTodaySerials();
 			setNowPlayingMovies(nowPlayingMovies);
 			setTopRatedMovies(topRatedMovies);
 			setPopularMovies(popularMovies);
 			setUpcomingMovies(upcomingMovies);
 			setOnTheAirSerials(onTheAirSerials);
+			setAiringTodaySerials(airingTodaySerials);
 			setTopRatedSerials(topRatedSerials);
 			setPopularSerials(popularSerials);
 		};

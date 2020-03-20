@@ -2,7 +2,7 @@ const INITIAL_STATE = {
 	onTheAir: [],
 	popular: [],
 	topRated: [],
-	upComing: []
+	airingToday: []
 };
 
 const serialsReducer = (state = INITIAL_STATE, { type, payload }) => {
@@ -21,6 +21,11 @@ const serialsReducer = (state = INITIAL_STATE, { type, payload }) => {
 			return {
 				...state,
 				popular: payload
+			};
+		case 'SET_AIRING_TODAY_SERIALS':
+			return {
+				...state,
+				airingToday: payload
 			};
 		default:
 			return state;

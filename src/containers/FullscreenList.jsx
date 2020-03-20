@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
@@ -25,7 +26,8 @@ const FullscreenList = ({
 	popularMovies,
 	upcomingMovies,
 	onTheAirSerials,
-	popularSerials
+	popularSerials,
+	airingTodaySerials
 }) => {
 	const { type, content } = useParams();
 	const [state, setState] = useState([]);
@@ -45,7 +47,7 @@ const FullscreenList = ({
 				setState(onTheAirSerials);
 				break;
 			case 'serials/coming-soon':
-				setState();
+				setState(airingTodaySerials);
 				break;
 			case 'serials/popular':
 				setState(popularSerials);
@@ -55,14 +57,14 @@ const FullscreenList = ({
 		}
 	});
 
-	console.log(state);
-
 	return (
 		<FullscreenListContainer>
 			<MoviesContainer>
 				{state.map(item => (
 					<MovieWrapper>
-						<img src={item.poster_path} width='100px' />
+						<Link to={`/${type}/${item.id}`}>
+							<img src={item.poster_path} width='100px' />
+						</Link>
 						<Title>{item.title || item.name}</Title>
 						<Info>
 							<time>{item.release_date}</time>
@@ -77,6 +79,8 @@ const FullscreenList = ({
 export default connect(state => ({
 	nowPlayingMovies: state.movies.nowPlaying,
 	popularMovies: state.movies.popular,
+	upcomingMovies: state.movies.upcoming,
 	onTheAirSerials: state.serials.onTheAir,
-	popularSerials: state.serials.popular
+	popularSerials: state.serials.popular,
+	airingTodaySerials: state.serials.airingToday
 }))(FullscreenList);

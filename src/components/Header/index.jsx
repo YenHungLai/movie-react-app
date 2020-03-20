@@ -7,18 +7,23 @@ import Navbar from '../Navbar';
 import Search from '../Search';
 import HamburgerMenu from '../HamburgerMenu';
 
-const Header = ({ showLeftDrawer }) => {
+const Header = ({ showLeftDrawer, popularMovies, popularSerials }) => {
+	// TODO: what should be the pool.
+	const contentPool = popularMovies.concat(popularSerials);
+
 	return (
 		<HeaderContainer showLeftDrawer={showLeftDrawer}>
 			<HamburgerMenu />
-			<Search />
+			<Search contentPool={contentPool} />
 			<Navbar />
 		</HeaderContainer>
 	);
 };
 
 const mapStateToProps = state => ({
-	showLeftDrawer: state.ui.showLeftDrawer
+	showLeftDrawer: state.ui.showLeftDrawer,
+	popularMovies: state.movies.popular,
+	popularSerials: state.serials.popular
 });
 
 const mapDispatchToProps = {

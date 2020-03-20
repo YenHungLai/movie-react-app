@@ -13,5 +13,6 @@ export const PATH_NOWPLAYING = '/now_playing';
 export const PATH_TRENDING = '/trending';
 export const PATH_TV = '/tv';
 export const PATH_ON_THE_AIR = '/on_the_air';
+export const PATH_AIRING_TODAY = '/airing_today';
 export const PATH_VIDEOS = '/videos';
 export const PATH_YOUTUBE_BASE = 'https://www.youtube.com/embed/';

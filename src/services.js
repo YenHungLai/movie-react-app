@@ -11,6 +11,7 @@ import {
 	PATH_POPULAR,
 	PATH_TOP_RATED,
 	PATH_ON_THE_AIR,
+	PATH_AIRING_TODAY,
 	PATH_TV,
 	PATH_VIDEOS,
 	PATH_CREDITS
@@ -104,6 +105,20 @@ export const getPopularSerials = async () => {
 	const {
 		data: { results }
 	} = await axios.get(`${PATH_BASE}${PATH_TV}${PATH_POPULAR}?api_key=${API_KEY}&language=en-US`);
+
+	return results.map(item => ({
+		...item,
+		poster_path: `${IMG_BASE}${IMG_SIZE}${item.poster_path}`,
+		backdrop_path: `${IMG_BASE}${IMG_SIZE}${item.backdrop_path}`
+	}));
+};
+
+export const getAiringTodaySerials = async () => {
+	const {
+		data: { results }
+	} = await axios.get(
+		`${PATH_BASE}${PATH_TV}${PATH_AIRING_TODAY}?api_key=${API_KEY}&language=en-US`
+	);
 
 	return results.map(item => ({
 		...item,

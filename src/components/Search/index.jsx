@@ -29,31 +29,23 @@ const Suggestions = ({ contentPool, query }) => {
 	);
 };
 
-const Search = props => {
-	const [state, setState] = useState();
+const Search = ({ contentPool }) => {
+	const [input, setInput] = useState();
 
 	const handleChange = e => {
 		// TODO: sanitize input
-		setState(e.target.value);
+		setInput(e.target.value);
 	};
 
 	return (
 		<SearchContainer>
 			<i className='fas fa-search'></i>
 			<MovieSearch onChange={handleChange} type='text' placeholder='Search' />
-			<Suggestions {...props} query={state} />
+			<Suggestions contentPool={contentPool} query={input} />
 		</SearchContainer>
 	);
 };
 
-const mapStateToProps = state => ({
-	// Have duplicates.
-	contentPool: [
-		...state.movies.nowPlaying,
-		...state.movies.topRated,
-		...state.serials.onTheAir,
-		...state.serials.topRated
-	]
-});
+const mapStateToProps = state => ({});
 
-export default connect(mapStateToProps)(Search);
+export default connect()(Search);
