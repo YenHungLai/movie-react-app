@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 // Components
 import { BaseContainer } from '../components/shared';
 import LeftDrawer from '../components/LeftDrawer';
+import ClickableLeftDrawer from '../components/ClickableLeftDrawer';
 import RightDrawer from '../components/RightDrawer';
 import Header from '../components/Header';
 import MainContent from '../components/MainContent';
@@ -20,6 +21,7 @@ const Home = ({ nowPlaying, topRated }) => {
 		<HomeContainer>
 			<Header />
 			<LeftDrawer />
+			<ClickableLeftDrawer />
 			<RightDrawer />
 			<MainContent />
 		</HomeContainer>
