@@ -5,10 +5,9 @@ const MainContentContainer = styled.div`
 	padding: 1em 0.7em;
 	background-color: #13151b;
 	color: white;
-	grid-column: 1 / 2;
+	grid-column: 2 / 3;
 	grid-row: 2 / 3;
 	transition: padding 0.2s ease-in;
-	padding-left: ${({ showLeftDrawer }) => (showLeftDrawer ? '17em' : '1em')};
 `;
 
 const FlexContainer = styled.div`

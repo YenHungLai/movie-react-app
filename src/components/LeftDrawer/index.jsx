@@ -1,3 +1,7 @@
+/**
+ * TODO:
+ * - Keep a regular left drawer, let current drawer cover it when clicked.
+ */
 import React from 'react';
 import {
 	LeftDrawerContainer,
@@ -9,7 +13,9 @@ import {
 } from './style';
 import { connect } from 'react-redux';
 import { setShowLeftDrawer } from '../../action/uiAction';
+import HamburgerMenu from '../HamburgerMenu';
 
+// TODO: make this the clickable drawer and create a base drawer.
 const LeftDrawer = ({ showLeftDrawer, setShowLeftDrawer, homePageContent }) => {
 	const handleClick = () => {
 		setShowLeftDrawer(false);

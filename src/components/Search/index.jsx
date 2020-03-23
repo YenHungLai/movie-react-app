@@ -1,16 +1,14 @@
-/**
- * TODO:
- * - Make this reuseable, pass in content pool.
- */
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { SuggestionsContainer, SearchContainer, MovieSearch } from './style';
 import { connect } from 'react-redux';
 
-const Suggestions = ({ contentPool, query }) => {
+const Suggestions = ({ contentPool, query, type }) => {
 	let results;
 	if (query !== '')
 		results = contentPool.filter(item => {
-			if (item.hasOwnProperty('title')) return item.title.toLowerCase().includes(query);
+			if (item.hasOwnProperty('title'))
+				return item.title.toLowerCase().includes(query);
 			return item.name.toLowerCase().includes(query);
 		});
 	else results = [];
@@ -21,7 +19,9 @@ const Suggestions = ({ contentPool, query }) => {
 			<ul>
 				{results.slice(0, 5).map(item => (
 					<li key={item.id}>
-						<img src={item.backdrop_path} height='150px' />
+						<Link to={`/${type}/${item.id}`}>
+							<img src={item.backdrop_path} height='150px' />
+						</Link>
 					</li>
 				))}
 			</ul>
@@ -29,7 +29,7 @@ const Suggestions = ({ contentPool, query }) => {
 	);
 };
 
-const Search = ({ contentPool }) => {
+const Search = ({ contentPool, homePageContent }) => {
 	const [input, setInput] = useState();
 
 	const handleChange = e => {
@@ -40,12 +40,22 @@ const Search = ({ contentPool }) => {
 	return (
 		<SearchContainer>
 			<i className='fas fa-search'></i>
-			<MovieSearch onChange={handleChange} type='text' placeholder='Search' />
-			<Suggestions contentPool={contentPool} query={input} />
+			<MovieSearch
+				onChange={handleChange}
+				type='text'
+				placeholder='Search'
+			/>
+			<Suggestions
+				contentPool={contentPool}
+				query={input}
+				type={homePageContent}
+			/>
 		</SearchContainer>
 	);
 };
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+	homePageContent: state.ui.homePageContent
+});
 
-export default connect()(Search);
+export default connect(mapStateToProps)(Search);

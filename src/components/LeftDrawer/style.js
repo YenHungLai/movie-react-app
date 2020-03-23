@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 const LeftDrawerContainer = styled.div`
 	color: white;
 	background-color: #08090a;
+	background-color: red;
 	height: 100%;
 	width: 250px;
 	padding: 0.5em 1em;

@@ -11,7 +11,7 @@ import MainContent from '../components/MainContent';
 // FIXME: re-structure layout.
 const HomeContainer = styled(BaseContainer)`
 	display: grid;
-	grid-template-columns: 80% 20%;
+	grid-template-columns: 20% 60% 20%;
 	grid-template-rows: 50px 1fr;
 `;
 

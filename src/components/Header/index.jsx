@@ -5,15 +5,13 @@ import { setHomePageContent } from '../../action/uiAction';
 // Components
 import Navbar from '../Navbar';
 import Search from '../Search';
-import HamburgerMenu from '../HamburgerMenu';
 
 const Header = ({ showLeftDrawer, popularMovies, popularSerials }) => {
 	// TODO: what should be the pool.
 	const contentPool = popularMovies.concat(popularSerials);
 
 	return (
-		<HeaderContainer showLeftDrawer={showLeftDrawer}>
-			<HamburgerMenu />
+		<HeaderContainer>
 			<Search contentPool={contentPool} />
 			<Navbar />
 		</HeaderContainer>
