@@ -5,8 +5,6 @@ export const BaseContainer = styled.div`
 	position: relative;
 	top: 10px;
 	max-width: 95vw;
-	max-height: 97vh;
 	margin: auto;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-	overflow: hidden;
 `;

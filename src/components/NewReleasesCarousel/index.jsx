@@ -21,41 +21,31 @@ const settings = {
 	slidesToScroll: 1
 };
 
-const CarouselItem = ({
-	backdrop_path,
-	title,
-	name,
-	type,
-	id,
-	release_date,
-	first_air_date
-}) => {
+const CarouselItem = ({ backdrop_path, title, name, type, id, release_date, first_air_date }) => {
 	// Anyway around this pattern?
 	const releaseDate = type === 'movies' ? release_date : first_air_date;
 
 	return (
 		// Image size changes, content does not stay in image.
-		<CarouselItemContainer>
-			<CarouselItemWrapper>
-				<Link to={`/${type}/${id}`}>
-					<img src={backdrop_path} alt={title} />
-				</Link>
+		<CarouselItemWrapper>
+			<img src={backdrop_path} alt={title} />
+			<Link to={`/${type}/${id}`}>
 				<Title>{title || name}</Title>
-				<WatchTrailer>
-					<Link to={`/trailer/${type}/${id}`}>
-						<i className='far fa-play-circle fa-2x'></i>
-					</Link>
-					<div>
-						<p>watch trailer</p>
-						<small>1:30</small>
-					</div>
-				</WatchTrailer>
-				<ReleaseDate>
-					<p>release date</p>
-					<small>{moment(releaseDate).format('DD.MM.YY')}</small>
-				</ReleaseDate>
-			</CarouselItemWrapper>
-		</CarouselItemContainer>
+			</Link>
+			<WatchTrailer>
+				<Link to={`/trailer/${type}/${id}`}>
+					<i className='far fa-play-circle fa-2x'></i>
+				</Link>
+				<div>
+					<p>watch trailer</p>
+					<small>1:30</small>
+				</div>
+			</WatchTrailer>
+			<ReleaseDate>
+				<p>release date</p>
+				<small>{moment(releaseDate).format('DD.MM.YY')}</small>
+			</ReleaseDate>
+		</CarouselItemWrapper>
 	);
 };
 

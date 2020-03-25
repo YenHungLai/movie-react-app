@@ -8,7 +8,9 @@ import {
 	FlexContainer,
 	Title,
 	SubTitle,
-	ControlWrapper
+	ControlWrapper,
+	VerticalLine,
+	HorizontalLine
 } from './style';
 
 const MainContent = ({
@@ -26,10 +28,8 @@ const MainContent = ({
 		else sliderRef.current.slickPrev();
 	};
 
-	const newReleases =
-		homePageContent === 'movies' ? nowPlayingMovies : onTheAirSerials;
-	const topRated =
-		homePageContent === 'movies' ? topRatedMovies : topRatedSerials;
+	const newReleases = homePageContent === 'movies' ? nowPlayingMovies : onTheAirSerials;
+	const topRated = homePageContent === 'movies' ? topRatedMovies : topRatedSerials;
 
 	return (
 		<MainContentContainer>
@@ -43,6 +43,7 @@ const MainContent = ({
 			/>
 			<FlexContainer>
 				<SubTitle>top rated</SubTitle>
+				<HorizontalLine />
 				<ControlWrapper>
 					<button id='prev' onClick={handleClick}>
 						<i className='fas fa-angle-left fa-2x'></i>
@@ -59,6 +60,7 @@ const MainContent = ({
 				sliderRef={sliderRef}
 				type={homePageContent}
 			/>
+			<VerticalLine />
 		</MainContentContainer>
 	);
 };

@@ -5,18 +5,11 @@ export const CarouselContainer = styled.div`
 	width: ${props => props.containerWidth};
 `;
 
-export const CarouselItemContainer = styled.div`
-	transition: transform 0.5s ease-out;
+export const CarouselItemWrapper = styled.div`
+	position: relative;
 	& img {
-		margin: auto;
 		width: 100%;
 	}
-`;
-
-export const CarouselItemWrapper = styled.div`
-	width: 65%;
-	position: relative;
-	margin: auto;
 `;
 
 export const Title = styled.h1`

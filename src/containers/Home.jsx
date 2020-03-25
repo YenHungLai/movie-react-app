@@ -9,10 +9,10 @@ import RightDrawer from '../components/RightDrawer';
 import Header from '../components/Header';
 import MainContent from '../components/MainContent';
 
-// FIXME: re-structure layout.
 const HomeContainer = styled(BaseContainer)`
 	display: grid;
-	grid-template-columns: 20% 60% 20%;
+	/* fit-content() does not work for some reason. */
+	grid-template-columns: 20% minmax(200px, auto) 20%;
 	grid-template-rows: 50px 1fr;
 `;
 

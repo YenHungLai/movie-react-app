@@ -43,4 +43,17 @@ const ControlWrapper = styled.div`
 	}
 `;
 
+export const VerticalLine = styled.div`
+	position: absolute;
+	right: 0;
+	top: 5%;
+	height: 90%;
+	border-right: white 1px solid;
+`;
+
+export const HorizontalLine = styled.div`
+	flex: 0.95;
+	border-bottom: #999 1px solid;
+`;
+
 export { MainContentContainer, FlexContainer, Title, SubTitle, ControlWrapper };

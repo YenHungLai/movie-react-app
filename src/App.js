@@ -1,5 +1,6 @@
 /**
  * TODO:
+ * - Allow scroll.
  */
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
@@ -26,7 +27,6 @@ import FullScreenVideoPlayer from './components/FullScreenVideoPlayer';
 
 const RootContainer = styled.div`
 	background: #999;
-	height: 100vh;
 `;
 
 const App = ({
