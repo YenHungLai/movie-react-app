@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const SearchContainer = styled.div`
+export const SearchContainer = styled.div`
 	flex: 0.2;
 	display: flex;
 	position: relative;
@@ -10,7 +10,7 @@ const SearchContainer = styled.div`
 	}
 `;
 
-const MovieSearch = styled.input`
+export const MovieSearch = styled.input`
 	background-color: transparent;
 	border: none;
 	outline: none;
@@ -21,7 +21,7 @@ const MovieSearch = styled.input`
 	}
 `;
 
-const SuggestionsContainer = styled.div`
+export const SuggestionsContainer = styled.div`
 	z-index: 100;
 	position: absolute;
 	top: 37px;
@@ -30,4 +30,11 @@ const SuggestionsContainer = styled.div`
 	}
 `;
 
-export { SearchContainer, MovieSearch, SuggestionsContainer };
+export const MovieCard = styled.li`
+	display: flex;
+`;
+
+export const MovieDetails = styled.div`
+	display: flex;
+	white-space: nowrap;
+`;

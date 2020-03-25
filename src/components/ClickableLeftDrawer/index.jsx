@@ -34,7 +34,7 @@ const ClickableLeftDrawer = ({ showLeftDrawer, setShowLeftDrawer, homePageConten
 					<NavLinks to={`/gallery/${homePageContent}/popular`}>
 						popular {contentName}
 					</NavLinks>
-					<NavLinks to='/gallery/trailers'>trailers</NavLinks>
+					{/* <NavLinks to='/gallery/trailers'>trailers</NavLinks> */}
 					{/* <NavLinks>genres</NavLinks> */}
 				</NavContainer>
 			</ContentContainer>

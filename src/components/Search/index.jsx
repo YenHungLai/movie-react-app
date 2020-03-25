@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { SuggestionsContainer, SearchContainer, MovieSearch } from './style';
+import {
+	SuggestionsContainer,
+	SearchContainer,
+	MovieSearch,
+	MovieCard,
+	MovieDetails
+} from './style';
 import { connect } from 'react-redux';
 
 const Suggestions = ({ contentPool, query, type }) => {
 	let results;
 	if (query !== '')
 		results = contentPool.filter(item => {
-			if (item.hasOwnProperty('title'))
-				return item.title.toLowerCase().includes(query);
+			if (item.hasOwnProperty('title')) return item.title.toLowerCase().includes(query);
 			return item.name.toLowerCase().includes(query);
 		});
 	else results = [];
@@ -18,11 +23,16 @@ const Suggestions = ({ contentPool, query, type }) => {
 		<SuggestionsContainer>
 			<ul>
 				{results.slice(0, 5).map(item => (
-					<li key={item.id}>
-						<Link to={`/${type}/${item.id}`}>
-							<img src={item.backdrop_path} height='150px' />
-						</Link>
-					</li>
+					<Link to={`/${type}/${item.id}`}>
+						<MovieCard key={item.id}>
+							<img src={item.poster_path} width='60px' />
+							<MovieDetails>
+								<p>
+									{item.name || item.title} ({item.release_date.slice(0, 4)})
+								</p>
+							</MovieDetails>
+						</MovieCard>
+					</Link>
 				))}
 			</ul>
 		</SuggestionsContainer>
@@ -40,16 +50,8 @@ const Search = ({ contentPool, homePageContent }) => {
 	return (
 		<SearchContainer>
 			<i className='fas fa-search'></i>
-			<MovieSearch
-				onChange={handleChange}
-				type='text'
-				placeholder='Search'
-			/>
-			<Suggestions
-				contentPool={contentPool}
-				query={input}
-				type={homePageContent}
-			/>
+			<MovieSearch onChange={handleChange} type='text' placeholder='Search' />
+			<Suggestions contentPool={contentPool} query={input} type={homePageContent} />
 		</SearchContainer>
 	);
 };
