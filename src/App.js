@@ -19,6 +19,8 @@ import {
 	getUpComingMovies,
 	getAiringTodaySerials
 } from './services';
+// Assets
+import './App.css';
 // Components
 import Home from './containers/Home';
 import FullscreenList from './containers/FullscreenList';
@@ -27,6 +29,7 @@ import FullScreenVideoPlayer from './components/FullScreenVideoPlayer';
 
 const RootContainer = styled.div`
 	background: #999;
+	padding: 1em 0;
 `;
 
 const App = ({

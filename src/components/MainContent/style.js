@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const MainContentContainer = styled.div`
 	position: relative;
-	padding: 1em 0.7em;
+	padding: 0 0.7em 1em;
 	background-color: #13151b;
 	color: white;
 	grid-column: 2 / 3;
@@ -46,14 +46,14 @@ const ControlWrapper = styled.div`
 export const VerticalLine = styled.div`
 	position: absolute;
 	right: 0;
-	top: 5%;
+	top: 4%;
 	height: 90%;
-	border-right: white 1px solid;
+	border-right: #999 0.7px solid;
 `;
 
 export const HorizontalLine = styled.div`
-	flex: 0.95;
-	border-bottom: #999 1px solid;
+	flex: 0.99;
+	border-bottom: #999 0.7px solid;
 `;
 
 export { MainContentContainer, FlexContainer, Title, SubTitle, ControlWrapper };

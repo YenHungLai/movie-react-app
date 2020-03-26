@@ -21,8 +21,8 @@ export const Title = styled.h1`
 
 export const ReleaseDate = styled.div`
 	position: absolute;
-	right: 30px;
-	bottom: 20px;
+	right: 10px;
+	bottom: 8px;
 	& > p::first-letter {
 		text-transform: capitalize;
 	}
@@ -35,8 +35,8 @@ export const WatchTrailer = styled.div`
 	display: flex;
 	align-items: center;
 	position: absolute;
-	left: 30px;
-	bottom: 20px;
+	left: 10px;
+	bottom: 8px;
 	& i {
 		margin-right: 0.5em;
 		color: #8ec6cc;
