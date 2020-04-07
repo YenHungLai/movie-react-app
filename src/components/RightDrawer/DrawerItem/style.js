@@ -17,12 +17,17 @@ const ContentWrapper = styled.div`
 
 const Title = styled.h4`
 	display: inline-block;
+	max-width: 195px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 `;
 
 const ReleaseDate = styled.time`
 	display: inline-block;
 	position: absolute;
 	right: 10px;
+	bottom: 20px;
 `;
 
 export { ContentWrapper, ReleaseDate, Title };

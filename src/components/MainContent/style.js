@@ -48,12 +48,12 @@ export const VerticalLine = styled.div`
 	right: 0;
 	top: 4%;
 	height: 90%;
-	border-right: #999 0.7px solid;
+	border-right: #99999961 0.7px solid;
 `;
 
 export const HorizontalLine = styled.div`
-	flex: 0.99;
-	border-bottom: #999 0.7px solid;
+	flex: 0.97;
+	border-bottom: #99999961 0.7px solid;
 `;
 
 export { MainContentContainer, FlexContainer, Title, SubTitle, ControlWrapper };

@@ -1,12 +1,12 @@
 import React from 'react';
-import { HeaderContainer } from './style';
 import { connect } from 'react-redux';
 import { setHomePageContent } from '../../action/uiAction';
 // Components
 import Navbar from '../Navbar';
 import Search from '../Search';
+import { HeaderContainer, PremiumIcon } from './style';
 
-const Header = ({ showLeftDrawer, popularMovies, popularSerials }) => {
+const Header = ({ popularMovies, popularSerials }) => {
 	// TODO: what should be the pool.
 	const contentPool = popularMovies.concat(popularSerials);
 
@@ -14,6 +14,10 @@ const Header = ({ showLeftDrawer, popularMovies, popularSerials }) => {
 		<HeaderContainer>
 			<Search contentPool={contentPool} />
 			<Navbar />
+			<PremiumIcon>
+				<i class='far fa-gem'></i>
+				<p>premium</p>
+			</PremiumIcon>
 		</HeaderContainer>
 	);
 };

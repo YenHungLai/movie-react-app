@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const HeaderContainer = styled.div`
+export const HeaderContainer = styled.div`
 	grid-column: 2/3;
 	display: flex;
 	align-items: center;
@@ -8,4 +8,17 @@ const HeaderContainer = styled.div`
 	padding: 0 1em;
 `;
 
-export { HeaderContainer };
+export const PremiumIcon = styled.div`
+	display: flex;
+	align-items: center;
+	background-color: #3e0f6c;
+	color: white;
+	padding: 5px 8px;
+	font-weight: bold;
+	& > i {
+		margin-right: 5px;
+	}
+	& > p {
+		text-transform: capitalize;
+	}
+`;

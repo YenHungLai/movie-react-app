@@ -4,8 +4,11 @@ import { connect } from 'react-redux';
 import { setShowLeftDrawer } from '../../action/uiAction';
 import HamburgerMenu from '../HamburgerMenu';
 
-// TODO: make this the clickable drawer and create a base drawer.
-const ClickableLeftDrawer = ({ showLeftDrawer, setShowLeftDrawer, homePageContent }) => {
+const ClickableLeftDrawer = ({
+	showLeftDrawer,
+	setShowLeftDrawer,
+	homePageContent
+}) => {
 	const handleClick = () => {
 		setShowLeftDrawer(false);
 	};
@@ -28,4 +31,7 @@ const mapDispatchToProps = {
 	setShowLeftDrawer
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ClickableLeftDrawer);
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(ClickableLeftDrawer);

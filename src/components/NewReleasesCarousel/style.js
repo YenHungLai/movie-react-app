@@ -7,6 +7,7 @@ export const CarouselContainer = styled.div`
 
 export const CarouselItemWrapper = styled.div`
 	position: relative;
+	padding: 1em 0.5em;
 	& img {
 		width: 100%;
 	}
@@ -21,8 +22,8 @@ export const Title = styled.h1`
 
 export const ReleaseDate = styled.div`
 	position: absolute;
-	right: 10px;
-	bottom: 8px;
+	right: 25px;
+	bottom: 35px;
 	& > p::first-letter {
 		text-transform: capitalize;
 	}
@@ -35,8 +36,8 @@ export const WatchTrailer = styled.div`
 	display: flex;
 	align-items: center;
 	position: absolute;
-	left: 10px;
-	bottom: 8px;
+	left: 25px;
+	bottom: 35px;
 	& i {
 		margin-right: 0.5em;
 		color: #8ec6cc;

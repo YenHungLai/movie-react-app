@@ -6,10 +6,10 @@ const LeftDrawerContainer = styled.div`
 	background-color: #08090a;
 	height: 100%;
 	width: 20%; /* Same as left drawer. */
-	padding: 0.5em 1em;
+	padding: 0.5em 2em;
 	transition: all 0.2s ease-in-out;
 	position: absolute;
-	left: ${({ showLeftDrawer }) => (showLeftDrawer ? 0 : '-250px')};
+	left: ${({ showLeftDrawer }) => (showLeftDrawer ? 0 : '-20%')};
 	opacity: ${({ showLeftDrawer }) => (showLeftDrawer ? 1 : 0)};
 	z-index: 10;
 `;
@@ -28,7 +28,7 @@ const ContentContainer = styled.div`
 const Title = styled.p`
 	font-weight: bold;
 	text-transform: uppercase;
-	margin-bottom: 7px;
+	margin-bottom: 10px;
 `;
 
 const NavContainer = styled.nav`
@@ -43,4 +43,11 @@ const NavLinks = styled(Link)`
 	text-decoration: none;
 `;
 
-export { LeftDrawerContainer, CloseBtn, ContentContainer, Title, NavContainer, NavLinks };
+export {
+	LeftDrawerContainer,
+	CloseBtn,
+	ContentContainer,
+	Title,
+	NavContainer,
+	NavLinks
+};

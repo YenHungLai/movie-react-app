@@ -3,7 +3,6 @@ import moment from 'moment';
 import { Link } from 'react-router-dom';
 import {
 	CarouselContainer,
-	CarouselItemContainer,
 	CarouselItemWrapper,
 	Title,
 	ReleaseDate,
@@ -21,12 +20,19 @@ const settings = {
 	slidesToScroll: 1
 };
 
-const CarouselItem = ({ backdrop_path, title, name, type, id, release_date, first_air_date }) => {
+const CarouselItem = ({
+	backdrop_path,
+	title,
+	name,
+	type,
+	id,
+	release_date,
+	first_air_date
+}) => {
 	// Anyway around this pattern?
 	const releaseDate = type === 'movies' ? release_date : first_air_date;
 
 	return (
-		// Image size changes, content does not stay in image.
 		<CarouselItemWrapper>
 			<img src={backdrop_path} alt={title} />
 			<Link to={`/${type}/${id}`}>

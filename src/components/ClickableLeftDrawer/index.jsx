@@ -11,8 +11,11 @@ import { connect } from 'react-redux';
 import { setShowLeftDrawer } from '../../action/uiAction';
 import HamburgerMenu from '../HamburgerMenu';
 
-// TODO: make this the clickable drawer and create a base drawer.
-const ClickableLeftDrawer = ({ showLeftDrawer, setShowLeftDrawer, homePageContent }) => {
+const ClickableLeftDrawer = ({
+	showLeftDrawer,
+	setShowLeftDrawer,
+	homePageContent
+}) => {
 	const handleClick = () => {
 		setShowLeftDrawer(false);
 	};
@@ -21,6 +24,7 @@ const ClickableLeftDrawer = ({ showLeftDrawer, setShowLeftDrawer, homePageConten
 
 	return (
 		<LeftDrawerContainer showLeftDrawer={showLeftDrawer} test id='test'>
+			<img src='logo.jpg' />
 			<CloseBtn onClick={handleClick}>
 				<i className='fas fa-chevron-left fa-lg'></i>
 			</CloseBtn>
@@ -30,7 +34,9 @@ const ClickableLeftDrawer = ({ showLeftDrawer, setShowLeftDrawer, homePageConten
 					<NavLinks to={`/gallery/${homePageContent}/new-releases`}>
 						new releases
 					</NavLinks>
-					<NavLinks to={`/gallery/${homePageContent}/coming-soon`}>coming soon</NavLinks>
+					<NavLinks to={`/gallery/${homePageContent}/coming-soon`}>
+						coming soon
+					</NavLinks>
 					<NavLinks to={`/gallery/${homePageContent}/popular`}>
 						popular {contentName}
 					</NavLinks>
@@ -51,4 +57,7 @@ const mapDispatchToProps = {
 	setShowLeftDrawer
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ClickableLeftDrawer);
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(ClickableLeftDrawer);
