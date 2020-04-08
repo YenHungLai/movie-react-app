@@ -6,28 +6,43 @@ import {
 	MovieSearch,
 	MovieCard,
 	MovieDetails,
+	Section
 } from './style';
 import { connect } from 'react-redux';
 
-const Suggestions = ({ contentPool, query, type }) => {
-	// TODO: separate movies and series.
-	let results;
-	if (query !== '')
-		results = contentPool.filter((item) => {
-			if (item.hasOwnProperty('title')) return item.title.toLowerCase().includes(query);
-			return item.name.toLowerCase().includes(query);
-		});
+const Suggestions = ({ contentPool, query }) => {
+	const movieResults = contentPool.filter(item => item.title && item.title.toLowerCase().includes(query));
+	const seriesResults = contentPool.filter(item => item.name && item.name.toLowerCase().includes(query));
+	console.log(query);
+	console.log(movieResults);
+	console.log(seriesResults);
 
 	return (
-		<SuggestionsContainer>
+		<SuggestionsContainer show={movieResults.length || seriesResults.length}>
+			<Section show={movieResults.length}>movies</Section>
 			<ul>
-				{results.slice(0, 5).map((item) => (
-					<Link to={`/${type}/${item.id}`} key={item.id}>
+				{movieResults.slice(0, 3).map((item) => (
+					<Link to={`/movies/${item.id}`} key={item.id}>
 						<MovieCard>
 							<img src={item.poster_path} width='60px' />
 							<MovieDetails>
 								<p>
-									{item.name || item.title} ({item.release_date.slice(0, 4)})
+									{item.title} ({item.release_date.slice(0, 4)})
+								</p>
+							</MovieDetails>
+						</MovieCard>
+					</Link>
+				))}
+			</ul>
+			<Section show={seriesResults.length}>series</Section>
+			<ul>
+				{seriesResults.slice(0, 3).map((item) => (
+					<Link to={`/series/${item.id}`} key={item.id}>
+						<MovieCard>
+							<img src={item.poster_path} width='60px' />
+							<MovieDetails>
+								<p>
+									{item.name} ({item.first_air_date.slice(0, 4)})
 								</p>
 							</MovieDetails>
 						</MovieCard>
@@ -50,9 +65,9 @@ const Search = ({ contentPool, homePageContent }) => {
 		<SearchContainer>
 			<i className='fas fa-search'></i>
 			<MovieSearch onChange={handleChange} type='text' placeholder='Search' />
-			<Suggestions contentPool={contentPool} query={input} type={homePageContent} />
+			{input && <Suggestions contentPool={contentPool} query={input} />}
 		</SearchContainer>
-	);
+	)
 };
 
 const mapStateToProps = (state) => ({
