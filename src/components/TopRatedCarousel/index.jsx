@@ -10,19 +10,16 @@ const settings = {
 	arrows: false,
 	speed: 500,
 	slidesToShow: 2,
-	slidesToScroll: 1
+	slidesToScroll: 1,
 };
 
-const TopRatedCarousel = ({
-	carouselItems,
-	containerWidth,
-	sliderRef,
-	type
-}) => {
+const TopRatedCarousel = ({ carouselItems, containerWidth, sliderRef, type }) => {
+	carouselItems = carouselItems.filter((item) => item.backdrop_path);
+
 	return (
 		<CarouselContainer containerWidth={containerWidth}>
 			<Slider ref={sliderRef} {...settings}>
-				{carouselItems.map(item => (
+				{carouselItems.map((item) => (
 					<CarouselItemWrapper key={item.id}>
 						<Link to={`/${type}/${item.id}`}>
 							<img src={item.backdrop_path} alt={item.title} />

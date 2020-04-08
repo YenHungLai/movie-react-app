@@ -4,17 +4,7 @@ import { connect } from 'react-redux';
 import { setShowLeftDrawer } from '../../action/uiAction';
 import HamburgerMenu from '../HamburgerMenu';
 
-const ClickableLeftDrawer = ({
-	showLeftDrawer,
-	setShowLeftDrawer,
-	homePageContent
-}) => {
-	const handleClick = () => {
-		setShowLeftDrawer(false);
-	};
-
-	const contentName = homePageContent === 'movies' ? 'movies' : 'series';
-
+const ClickableLeftDrawer = ({ showLeftDrawer, homePageContent }) => {
 	return (
 		<LeftDrawerContainer showLeftDrawer={showLeftDrawer} test id='test'>
 			<HamburgerMenu />
@@ -22,16 +12,13 @@ const ClickableLeftDrawer = ({
 	);
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
 	showLeftDrawer: state.ui.showLeftDrawer,
-	homePageContent: state.ui.homePageContent
+	homePageContent: state.ui.homePageContent,
 });
 
 const mapDispatchToProps = {
-	setShowLeftDrawer
+	setShowLeftDrawer,
 };
 
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(ClickableLeftDrawer);
+export default connect(mapStateToProps, mapDispatchToProps)(ClickableLeftDrawer);

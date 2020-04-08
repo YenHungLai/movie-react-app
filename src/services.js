@@ -14,134 +14,133 @@ import {
 	PATH_AIRING_TODAY,
 	PATH_TV,
 	PATH_VIDEOS,
-	PATH_CREDITS
+	PATH_CREDITS,
 } from './constants';
 
 export const getNowPlayingMovies = async () => {
 	const {
-		data: { results }
+		data: { results },
 	} = await axios.get(
 		`${PATH_BASE}${PATH_MOVIE}${PATH_NOWPLAYING}?api_key=${API_KEY}&language=en-US`
 	);
 
-	return results.map(item => ({
+	return results.map((item) => ({
 		...item,
 		poster_path: `${IMG_BASE}${IMG_SIZE}${item.poster_path}`,
-		backdrop_path: `${IMG_BASE}${IMG_SIZE}${item.backdrop_path}`
+		backdrop_path: `${IMG_BASE}${IMG_SIZE}${item.backdrop_path}`,
 	}));
 };
 
 export const getTopRatedMovies = async () => {
 	const {
-		data: { results }
+		data: { results },
 	} = await axios.get(
 		`${PATH_BASE}${PATH_MOVIE}${PATH_TOP_RATED}?api_key=${API_KEY}&language=en-US`
 	);
 
-	return results.map(item => ({
+	return results.map((item) => ({
 		...item,
 		poster_path: `${IMG_BASE}${IMG_SIZE}${item.poster_path}`,
-		backdrop_path: `${IMG_BASE}${IMG_SIZE}${item.backdrop_path}`
+		backdrop_path: `${IMG_BASE}${IMG_SIZE}${item.backdrop_path}`,
 	}));
 };
 
 export const getPopularMovies = async () => {
 	const {
-		data: { results }
+		data: { results },
 	} = await axios.get(
 		`${PATH_BASE}${PATH_MOVIE}${PATH_POPULAR}?api_key=${API_KEY}&language=en-US`
 	);
 
-	return results.map(item => ({
+	return results.map((item) => ({
 		...item,
 		poster_path: `${IMG_BASE}${IMG_SIZE}${item.poster_path}`,
-		backdrop_path: `${IMG_BASE}${IMG_SIZE}${item.backdrop_path}`
+		backdrop_path: `${IMG_BASE}${IMG_SIZE}${item.backdrop_path}`,
 	}));
 };
 
 export const getUpComingMovies = async () => {
 	const {
-		data: { results }
+		data: { results },
 	} = await axios.get(
 		`${PATH_BASE}${PATH_MOVIE}${PATH_UPCOMING}?api_key=${API_KEY}&language=en-US`
 	);
 
-	return results.map(item => ({
+	return results.map((item) => ({
 		...item,
 		poster_path: `${IMG_BASE}${IMG_SIZE}${item.poster_path}`,
-		backdrop_path: `${IMG_BASE}${IMG_SIZE}${item.backdrop_path}`
+		backdrop_path: `${IMG_BASE}${IMG_SIZE}${item.backdrop_path}`,
 	}));
 };
 
 export const getOnTheAirSerials = async () => {
 	const {
-		data: { results }
+		data: { results },
 	} = await axios.get(
 		`${PATH_BASE}${PATH_TV}${PATH_ON_THE_AIR}?api_key=${API_KEY}&language=en-US`
 	);
 
-	return results.map(item => ({
+	return results.map((item) => ({
 		...item,
 		poster_path: `${IMG_BASE}${IMG_SIZE}${item.poster_path}`,
-		backdrop_path: `${IMG_BASE}${IMG_SIZE}${item.backdrop_path}`
+		backdrop_path: `${IMG_BASE}${IMG_SIZE}${item.backdrop_path}`,
 	}));
 };
 
 export const getTopRatedSerials = async () => {
 	const {
-		data: { results }
+		data: { results },
 	} = await axios.get(
 		`${PATH_BASE}${PATH_TV}${PATH_TOP_RATED}?api_key=${API_KEY}&language=en-US`
 	);
 
-	return results.map(item => ({
+	return results.map((item) => ({
 		...item,
-		poster_path: `${IMG_BASE}${IMG_SIZE}${item.poster_path}`,
-		backdrop_path: `${IMG_BASE}${IMG_SIZE}${item.backdrop_path}`
+		// TODO: if not present set to image unavailable.
+		poster_path: item.poster_path ? `${IMG_BASE}${IMG_SIZE}${item.poster_path}` : null,
+		backdrop_path: item.backdrop_path ? `${IMG_BASE}${IMG_SIZE}${item.backdrop_path}` : null,
 	}));
 };
 
 export const getPopularSerials = async () => {
 	const {
-		data: { results }
-	} = await axios.get(
-		`${PATH_BASE}${PATH_TV}${PATH_POPULAR}?api_key=${API_KEY}&language=en-US`
-	);
+		data: { results },
+	} = await axios.get(`${PATH_BASE}${PATH_TV}${PATH_POPULAR}?api_key=${API_KEY}&language=en-US`);
 
-	return results.map(item => ({
+	return results.map((item) => ({
 		...item,
 		poster_path: `${IMG_BASE}${IMG_SIZE}${item.poster_path}`,
-		backdrop_path: `${IMG_BASE}${IMG_SIZE}${item.backdrop_path}`
+		backdrop_path: `${IMG_BASE}${IMG_SIZE}${item.backdrop_path}`,
 	}));
 };
 
 export const getAiringTodaySerials = async () => {
 	const {
-		data: { results }
+		data: { results },
 	} = await axios.get(
 		`${PATH_BASE}${PATH_TV}${PATH_AIRING_TODAY}?api_key=${API_KEY}&language=en-US`
 	);
 
-	return results.map(item => ({
+	return results.map((item) => ({
 		...item,
 		poster_path: `${IMG_BASE}${IMG_SIZE}${item.poster_path}`,
-		backdrop_path: `${IMG_BASE}${IMG_SIZE}${item.backdrop_path}`
+		backdrop_path: `${IMG_BASE}${IMG_SIZE}${item.backdrop_path}`,
 	}));
 };
 
 export const getTrailer = async (id, type) => {
 	const PATH_VAR = type === 'movies' ? PATH_MOVIE : PATH_TV;
 	const {
-		data: { results }
+		data: { results },
 	} = await axios.get(
 		`${PATH_BASE}${PATH_VAR}/${id}${PATH_VIDEOS}?api_key=${API_KEY}&language=en-US`
 	);
 
-	const trailer = results.find(item => item.type === 'Trailer') ||
+	const trailer = results.find((item) => item.type === 'Trailer') ||
 		results[0] || {
 			id: null,
 			key: null,
-			size: null
+			size: null,
 		};
 
 	return trailer;
@@ -155,8 +154,8 @@ export const getDetails = async (id, type) => {
 
 	return {
 		...data,
-		poster_path: `${IMG_BASE}/original${data.poster_path}`,
-		backdrop_path: `${IMG_BASE}/original${data.backdrop_path}`
+		poster_path: `${IMG_BASE}original${data.poster_path}`,
+		backdrop_path: `${IMG_BASE}original${data.backdrop_path}`,
 	};
 };
 

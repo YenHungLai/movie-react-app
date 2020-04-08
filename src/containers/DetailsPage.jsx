@@ -37,34 +37,29 @@ const DetailsPage = () => {
 	const history = useHistory();
 
 	useEffect(() => {
-		getCredits(id, type).then(res => {
+		getCredits(id, type).then((res) => {
 			setCredits(res);
 			console.log(res);
 		});
-		getDetails(id, type).then(res => {
+		getDetails(id, type).then((res) => {
 			console.log(res);
 			setDetails(res);
 		});
 	}, []);
 
 	// How to get derived data from state.
+	// Crew property for tv shows always empty.
 	const director =
-		credits.crew && credits.crew.find(item => item.job === 'Director').name;
-	const genres = details.genres && details.genres.map(genre => genre.name);
-	const releaseYear =
-		details.release_date && details.release_date.slice(0, 4);
-	const actors =
-		credits.cast && credits.cast.map(actor => actor.name).slice(0, 5);
+		credits.crew && (credits.crew.find((item) => item.job === 'Director') || {}).name;
+	const genres = details.genres && details.genres.map((genre) => genre.name);
+	const releaseYear = details.release_date && details.release_date.slice(0, 4);
+	const actors = credits.cast && credits.cast.map((actor) => actor.name).slice(0, 5);
 	const producers =
 		credits.crew &&
-		credits.crew
-			.filter(crew => crew.job === 'Producer')
-			.map(producer => producer.name);
+		credits.crew.filter((crew) => crew.job === 'Producer').map((producer) => producer.name);
 	const screenplay =
 		credits.crew &&
-		credits.crew
-			.filter(crew => crew.job === 'Screenplay')
-			.map(writer => writer.name);
+		credits.crew.filter((crew) => crew.job === 'Screenplay').map((writer) => writer.name);
 
 	return (
 		<DetailsPageContainer background={details.backdrop_path}>

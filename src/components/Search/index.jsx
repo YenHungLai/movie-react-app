@@ -5,26 +5,25 @@ import {
 	SearchContainer,
 	MovieSearch,
 	MovieCard,
-	MovieDetails
+	MovieDetails,
 } from './style';
 import { connect } from 'react-redux';
 
 const Suggestions = ({ contentPool, query, type }) => {
+	// TODO: separate movies and series.
 	let results;
 	if (query !== '')
-		results = contentPool.filter(item => {
+		results = contentPool.filter((item) => {
 			if (item.hasOwnProperty('title')) return item.title.toLowerCase().includes(query);
 			return item.name.toLowerCase().includes(query);
 		});
-	else results = [];
-	// console.log(results);
 
 	return (
 		<SuggestionsContainer>
 			<ul>
-				{results.slice(0, 5).map(item => (
-					<Link to={`/${type}/${item.id}`}>
-						<MovieCard key={item.id}>
+				{results.slice(0, 5).map((item) => (
+					<Link to={`/${type}/${item.id}`} key={item.id}>
+						<MovieCard>
 							<img src={item.poster_path} width='60px' />
 							<MovieDetails>
 								<p>
@@ -42,7 +41,7 @@ const Suggestions = ({ contentPool, query, type }) => {
 const Search = ({ contentPool, homePageContent }) => {
 	const [input, setInput] = useState();
 
-	const handleChange = e => {
+	const handleChange = (e) => {
 		// TODO: sanitize input
 		setInput(e.target.value);
 	};
@@ -56,8 +55,8 @@ const Search = ({ contentPool, homePageContent }) => {
 	);
 };
 
-const mapStateToProps = state => ({
-	homePageContent: state.ui.homePageContent
+const mapStateToProps = (state) => ({
+	homePageContent: state.ui.homePageContent,
 });
 
 export default connect(mapStateToProps)(Search);

@@ -10,7 +10,7 @@ import {
 	SubTitle,
 	ControlWrapper,
 	VerticalLine,
-	HorizontalLine
+	HorizontalLine,
 } from './style';
 
 const MainContent = ({
@@ -19,11 +19,10 @@ const MainContent = ({
 	onTheAirSerials,
 	topRatedSerials,
 	homePageContent,
-	showLeftDrawer
 }) => {
 	const sliderRef = useRef();
 
-	const handleClick = e => {
+	const handleClick = (e) => {
 		if (e.target.id === 'next') sliderRef.current.slickNext();
 		else sliderRef.current.slickPrev();
 	};
@@ -65,13 +64,13 @@ const MainContent = ({
 	);
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
 	nowPlayingMovies: state.movies.nowPlaying,
 	topRatedMovies: state.movies.topRated,
 	onTheAirSerials: state.serials.onTheAir,
 	topRatedSerials: state.serials.topRated,
 	homePageContent: state.ui.homePageContent,
-	showLeftDrawer: state.ui.showLeftDrawer
+	showLeftDrawer: state.ui.showLeftDrawer,
 });
 
 export default connect(mapStateToProps)(MainContent);

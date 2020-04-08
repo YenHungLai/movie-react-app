@@ -15,21 +15,21 @@ const Header = ({ popularMovies, popularSerials }) => {
 			<Search contentPool={contentPool} />
 			<Navbar />
 			<PremiumIcon>
-				<i class='far fa-gem'></i>
+				<i className='far fa-gem'></i>
 				<p>premium</p>
 			</PremiumIcon>
 		</HeaderContainer>
 	);
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
 	showLeftDrawer: state.ui.showLeftDrawer,
 	popularMovies: state.movies.popular,
-	popularSerials: state.serials.popular
+	popularSerials: state.serials.popular,
 });
 
 const mapDispatchToProps = {
-	setHomePageContent
+	setHomePageContent,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
