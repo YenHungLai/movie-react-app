@@ -29,7 +29,6 @@ import FullScreenVideoPlayer from './components/FullScreenVideoPlayer';
 
 const RootContainer = styled.div`
 	background: #999;
-	padding: 1em 0;
 `;
 
 const App = ({

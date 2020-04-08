@@ -46,8 +46,9 @@ const ControlWrapper = styled.div`
 export const VerticalLine = styled.div`
 	position: absolute;
 	right: 0;
-	top: 4%;
-	height: 90%;
+	top: 2%;
+	height: 95%;
+	width: 1px;
 	border-right: #99999961 0.7px solid;
 `;
 

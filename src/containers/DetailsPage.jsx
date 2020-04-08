@@ -11,7 +11,7 @@ const DetailsPageContainer = styled(BaseContainer)`
 	background: url(${({ background }) => background}) rgb(138, 140, 146);
 	background-size: cover;
 	background-blend-mode: multiply;
-	height: 97vh;
+	height: 100vh;
 	color: white;
 	display: flex;
 	justify-content: center;

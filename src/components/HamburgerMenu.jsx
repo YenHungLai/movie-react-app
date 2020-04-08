@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { setShowLeftDrawer } from '../action/uiAction';
 
 const HamburgerMenuContainer = styled.div`
-	margin-right: 1em;
 	& span {
 		display: block;
 		width: 33px;

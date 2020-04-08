@@ -12,7 +12,7 @@ import MainContent from '../components/MainContent';
 const HomeContainer = styled(BaseContainer)`
 	display: grid;
 	/* fit-content() does not work for some reason. */
-	grid-template-columns: 20% minmax(200px, auto) 20%;
+	grid-template-columns: 15% minmax(200px, auto) 20%;
 	grid-template-rows: 50px 1fr;
 `;
 

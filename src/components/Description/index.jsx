@@ -1,4 +1,5 @@
 import React from 'react';
+import { currencyFormatter } from '../../helps'
 // Components
 import {
 	DescriptionContainer,
@@ -20,14 +21,14 @@ const List = ({ name, values }) => {
 					))}
 				</ul>
 			) : (
-				<p>{values}</p>
-			)}
+					<p>{values}</p>
+				)}
 		</ListContainer>
 	);
 };
 
 const Description = ({
-	details: { title, name, runtime, overview },
+	details: { title, name, runtime, overview, revenue },
 	director,
 	genres,
 	releaseYear,
@@ -46,8 +47,9 @@ const Description = ({
 			<SubHeader>information</SubHeader>
 			<ListsContainer>
 				<List name='genre' values={genres} />
-				<List name='duration' values={runtime} />
+				<List name='duration' values={`${runtime} minutes`} />
 				<List name='release year' values={releaseYear} />
+				<List name='revenue' values={currencyFormatter.format(revenue)} />
 				{/* <List name='rating' values={releaseYear} /> */}
 			</ListsContainer>
 			<SubHeader>cast & crew</SubHeader>

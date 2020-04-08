@@ -19,7 +19,6 @@ const ClickableLeftDrawer = ({ showLeftDrawer, setShowLeftDrawer, homePageConten
 
 	return (
 		<LeftDrawerContainer showLeftDrawer={showLeftDrawer} test id='test'>
-			<img src='logo.jpg' />
 			<CloseBtn onClick={handleClick}>
 				<i className='fas fa-chevron-left fa-lg'></i>
 			</CloseBtn>
