@@ -6,13 +6,17 @@ import {
 	MovieSearch,
 	MovieCard,
 	MovieDetails,
-	Section
+	Section,
 } from './style';
 import { connect } from 'react-redux';
 
 const Suggestions = ({ contentPool, query }) => {
-	const movieResults = contentPool.filter(item => item.title && item.title.toLowerCase().includes(query));
-	const seriesResults = contentPool.filter(item => item.name && item.name.toLowerCase().includes(query));
+	const movieResults = contentPool.filter(
+		(item) => item.title && item.title.toLowerCase().includes(query)
+	);
+	const seriesResults = contentPool.filter(
+		(item) => item.name && item.name.toLowerCase().includes(query)
+	);
 	console.log(query);
 	console.log(movieResults);
 	console.log(seriesResults);
@@ -64,10 +68,10 @@ const Search = ({ contentPool, homePageContent }) => {
 	return (
 		<SearchContainer>
 			<i className='fas fa-search'></i>
-			<MovieSearch onChange={handleChange} type='text' placeholder='Search' />
+			<MovieSearch onChange={handleChange} type='search' placeholder='Search' />
 			{input && <Suggestions contentPool={contentPool} query={input} />}
 		</SearchContainer>
-	)
+	);
 };
 
 const mapStateToProps = (state) => ({

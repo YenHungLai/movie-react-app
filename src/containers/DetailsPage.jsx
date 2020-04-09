@@ -64,7 +64,7 @@ const DetailsPage = () => {
 	return (
 		<DetailsPageContainer background={details.backdrop_path}>
 			<BackBtn onClick={history.goBack}>
-				<i className='far fa-arrow-alt-circle-left fa-3x'></i>
+				<i className='fas fa-arrow-left fa-lg'></i>
 			</BackBtn>
 			<Description
 				details={details}

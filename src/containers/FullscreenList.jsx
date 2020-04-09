@@ -1,25 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 // Components
-import { BaseContainer } from '../components/shared';
+import { BaseContainer, HoverInput } from '../components/shared';
+import FullscreenGrid from '../components/FullscreenGrid';
 
 const FullscreenListContainer = styled(BaseContainer)`
 	padding: 1em;
 	color: white;
 `;
-
-const MoviesContainer = styled.div`
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-	grid-column-gap: 6px;
-`;
-
-const MovieWrapper = styled.div``;
-const Title = styled.p``;
-const Info = styled.div``;
 
 const FullscreenList = ({
 	nowPlayingMovies,
@@ -27,7 +17,7 @@ const FullscreenList = ({
 	upcomingMovies,
 	onTheAirSerials,
 	popularSerials,
-	airingTodaySerials
+	airingTodaySerials,
 }) => {
 	const { type, content } = useParams();
 	const [state, setState] = useState([]);
@@ -59,28 +49,21 @@ const FullscreenList = ({
 
 	return (
 		<FullscreenListContainer>
-			<MoviesContainer>
-				{state.map(item => (
-					<MovieWrapper>
-						<Link to={`/${type}/${item.id}`}>
-							<img src={item.poster_path} width='100px' />
-						</Link>
-						<Title>{item.title || item.name}</Title>
-						<Info>
-							<time>{item.release_date}</time>
-						</Info>
-					</MovieWrapper>
-				))}
-			</MoviesContainer>
+			{/* TODO: put this in a component and add search feature. */}
+			<HoverInput>
+				<input type='search' />
+				<i className='fa fa-search'></i>
+			</HoverInput>
+			<FullscreenGrid content={state} type={type} />
 		</FullscreenListContainer>
 	);
 };
 
-export default connect(state => ({
+export default connect((state) => ({
 	nowPlayingMovies: state.movies.nowPlaying,
 	popularMovies: state.movies.popular,
 	upcomingMovies: state.movies.upcoming,
 	onTheAirSerials: state.serials.onTheAir,
 	popularSerials: state.serials.popular,
-	airingTodaySerials: state.serials.airingToday
+	airingTodaySerials: state.serials.airingToday,
 }))(FullscreenList);
