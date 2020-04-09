@@ -1,14 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 // Components
-import { BaseContainer, HoverInput } from '../components/shared';
+import { BaseContainer } from '../components/shared';
 import FullscreenGrid from '../components/FullscreenGrid';
+import GridSearch from '../components/GridSearch';
+import BackButton from '../components/BackButton';
 
 const FullscreenListContainer = styled(BaseContainer)`
 	padding: 1em;
+	min-height: 100vh;
 	color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 `;
 
 const FullscreenList = ({
@@ -20,41 +26,37 @@ const FullscreenList = ({
 	airingTodaySerials,
 }) => {
 	const { type, content } = useParams();
-	const [state, setState] = useState([]);
+	const [query, setQuery] = useState('');
+	const contentToDisplay = useRef([]);
 
-	useEffect(() => {
-		switch (`${type}/${content}`) {
-			case 'movies/new-releases':
-				setState(nowPlayingMovies);
-				break;
-			case 'movies/coming-soon':
-				setState(upcomingMovies);
-				break;
-			case 'movies/popular':
-				setState(popularMovies);
-				break;
-			case 'serials/new-releases':
-				setState(onTheAirSerials);
-				break;
-			case 'serials/coming-soon':
-				setState(airingTodaySerials);
-				break;
-			case 'serials/popular':
-				setState(popularSerials);
-				break;
-			default:
-				break;
-		}
-	});
+	switch (`${type}/${content}`) {
+		case 'movies/new-releases':
+			contentToDisplay.current = nowPlayingMovies;
+			break;
+		case 'movies/coming-soon':
+			contentToDisplay.current = upcomingMovies;
+			break;
+		case 'movies/popular':
+			contentToDisplay.current = popularMovies;
+			break;
+		case 'serials/new-releases':
+			contentToDisplay.current = onTheAirSerials;
+			break;
+		case 'serials/coming-soon':
+			contentToDisplay.current = airingTodaySerials;
+			break;
+		case 'serials/popular':
+			contentToDisplay.current = popularSerials;
+			break;
+		default:
+			break;
+	}
 
 	return (
 		<FullscreenListContainer>
-			{/* TODO: put this in a component and add search feature. */}
-			<HoverInput>
-				<input type='search' />
-				<i className='fa fa-search'></i>
-			</HoverInput>
-			<FullscreenGrid content={state} type={type} />
+			<BackButton />
+			<GridSearch setQuery={setQuery} />
+			<FullscreenGrid content={contentToDisplay.current} type={type} query={query} />
 		</FullscreenListContainer>
 	);
 };

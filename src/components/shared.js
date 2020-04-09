@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const BaseContainer = styled.div`
 	background-color: #08090a;
@@ -54,4 +54,9 @@ export const HoverInput = styled.form`
 		background: #07051a;
 		color: white;
 	}
+`;
+
+export const fadeIn = keyframes`
+	from { opacity: 0 };
+	to { opacity: 1 };
 `;

@@ -6,6 +6,7 @@ import { getCredits, getDetails } from '../services';
 // Components
 import { BaseContainer } from '../components/shared';
 import Description from '../components/Description';
+import BackButton from '../components/BackButton';
 
 const DetailsPageContainer = styled(BaseContainer)`
 	background: url(${({ background }) => background}) rgb(138, 140, 146);
@@ -22,19 +23,10 @@ const Poster = styled.img`
 	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 `;
 
-const BackBtn = styled.a`
-	position: absolute;
-	left: 10px;
-	top: 8px;
-	color: #999;
-	cursor: pointer;
-`;
-
 const DetailsPage = () => {
 	const [details, setDetails] = useState({});
 	const [credits, setCredits] = useState({});
 	const { type, id } = useParams();
-	const history = useHistory();
 
 	useEffect(() => {
 		getCredits(id, type).then((res) => {
@@ -63,9 +55,7 @@ const DetailsPage = () => {
 
 	return (
 		<DetailsPageContainer background={details.backdrop_path}>
-			<BackBtn onClick={history.goBack}>
-				<i className='fas fa-arrow-left fa-lg'></i>
-			</BackBtn>
+			<BackButton />
 			<Description
 				details={details}
 				credits={credits}

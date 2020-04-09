@@ -1,9 +1,5 @@
-import styled, { keyframes } from 'styled-components';
-
-const fadeIn = keyframes`
-	from { opacity: 0 };
-	to { opacity: 1 };
-`
+import styled from 'styled-components';
+import { fadeIn } from '../shared';
 
 export const SearchContainer = styled.div`
 	flex: 0.2;
@@ -27,7 +23,7 @@ export const MovieSearch = styled.input`
 `;
 
 export const SuggestionsContainer = styled.div`
-	display: ${({ show }) => show ? 'block' : 'none'};
+	display: ${({ show }) => (show ? 'block' : 'none')};
 	z-index: 100;
 	position: absolute;
 	top: 37px;
@@ -65,12 +61,12 @@ export const MovieDetails = styled.div`
 
 export const Section = styled.h3`
 	text-transform: uppercase;
-	display: ${({ show }) => show ? 'block' : 'none'};
+	display: ${({ show }) => (show ? 'block' : 'none')};
 	&:before {
 		position: absolute;
-		content: "";
+		content: '';
 		height: 1.1em;
 		border-left: 3px solid #fa320a;
 		margin: 5px 0 0 -7px;
 	}
-`	
+`;

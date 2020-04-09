@@ -3,11 +3,16 @@ import { Link } from 'react-router-dom';
 // Components
 import { GridContainer, MovieWrapper, Title, Info } from './style';
 
-const FullscreenGrid = ({ content, type }) => {
+const FullscreenGrid = ({ content, type, query }) => {
+	content = content.filter((item) => {
+		if (item.title) return item.title.toLowerCase().includes(query);
+		return item.name.toLowerCase().includes(query);
+	});
+
 	return (
 		<GridContainer>
 			{content.map((item) => (
-				<MovieWrapper>
+				<MovieWrapper key={item.id}>
 					<Link to={`/${type}/${item.id}`}>
 						<img src={item.poster_path} width='100%' />
 					</Link>
