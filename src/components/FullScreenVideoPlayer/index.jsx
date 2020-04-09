@@ -1,27 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { Container } from './style';
 import { PATH_YOUTUBE_BASE } from '../../constants';
 import { getTrailer } from '../../services';
+// Components
+import BackButton from '../BackButton';
 
 const FullScreenVideoPlayer = () => {
 	const [key, setKey] = useState();
 	const { id, type } = useParams();
-	const { goBack } = useHistory();
 
 	// Anyway around this pattern?
 	useEffect(() => {
-		getTrailer(id, type).then(res => {
+		getTrailer(id, type).then((res) => {
 			setKey(res.key);
 		});
 	}, []);
 
 	return (
 		<Container>
-			<button onClick={() => goBack()}>
-				<i className='far fa-arrow-alt-circle-left fa-2x'></i>
-			</button>
+			<BackButton />
 			{key && <iframe src={`${PATH_YOUTUBE_BASE}${key}?autoplay=1`} allowFullScreen></iframe>}
 		</Container>
 	);

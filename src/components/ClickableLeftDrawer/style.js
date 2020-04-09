@@ -41,13 +41,10 @@ const NavLinks = styled(Link)`
 	margin: 8px 0;
 	text-transform: capitalize;
 	text-decoration: none;
+	transition: color 0.3s ease-in;
+	&:hover {
+		color: #8ec6cc;
+	}
 `;
 
-export {
-	LeftDrawerContainer,
-	CloseBtn,
-	ContentContainer,
-	Title,
-	NavContainer,
-	NavLinks
-};
+export { LeftDrawerContainer, CloseBtn, ContentContainer, Title, NavContainer, NavLinks };

@@ -17,7 +17,7 @@ import {
 	getPopularSerials,
 	getLatestMovies,
 	getUpComingMovies,
-	getAiringTodaySerials
+	getAiringTodaySerials,
 } from './services';
 // Assets
 import './App.css';
@@ -39,7 +39,7 @@ const App = ({
 	setOnTheAirSerials,
 	setTopRatedSerials,
 	setPopularSerials,
-	setAiringTodaySerials
+	setAiringTodaySerials,
 }) => {
 	useEffect(() => {
 		const getData = async () => {
@@ -69,8 +69,8 @@ const App = ({
 				<Switch>
 					<Route exact path='/' component={Home} />
 					<Route path='/gallery/:type/:content' component={FullscreenList} />
-					<Route path='/:type/:id' component={DetailsPage} />
 					<Route path='/trailer/:type/:id' component={FullScreenVideoPlayer} />
+					<Route path='/:type/:id' component={DetailsPage} />
 				</Switch>
 			</RootContainer>
 		</Router>
@@ -81,7 +81,7 @@ const mapStateToProps = {};
 
 const mapDispatchToProps = {
 	...moviesActions,
-	...serialsActions
+	...serialsActions,
 };
 
 export default connect(null, mapDispatchToProps)(App);

@@ -9,9 +9,8 @@ const DrawerItem = ({ content, type }) => {
 	const { backdrop_path, title, release_date, name } = content;
 
 	useEffect(() => {
-		getDetails(content.id, type).then(res => setDetails(res));
+		getDetails(content.id, type).then((res) => setDetails(res));
 	}, [content]);
-	// console.log(details);
 
 	return (
 		<ContentWrapper>
@@ -24,8 +23,7 @@ const DrawerItem = ({ content, type }) => {
 				<p>{details.runtime} minutes</p>
 			) : (
 				<p>
-					{details.number_of_seasons} seasons -{' '}
-					{details.number_of_episodes} episodes
+					{details.number_of_seasons} seasons - {details.number_of_episodes} episodes
 				</p>
 			)}
 		</ContentWrapper>

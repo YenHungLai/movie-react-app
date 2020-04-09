@@ -10,7 +10,7 @@ const NavLink = styled.a`
 	color: ${({ active }) => (active ? '#8EC6CC' : 'inherit')};
 	font-weight: bold;
 	text-transform: capitalize;
-	transition: color 0.3s ease-out;
+	transition: color 0.3s ease-in;
 	cursor: pointer;
 `;
 

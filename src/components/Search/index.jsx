@@ -17,9 +17,6 @@ const Suggestions = ({ contentPool, query }) => {
 	const seriesResults = contentPool.filter(
 		(item) => item.name && item.name.toLowerCase().includes(query)
 	);
-	console.log(query);
-	console.log(movieResults);
-	console.log(seriesResults);
 
 	return (
 		<SuggestionsContainer show={movieResults.length || seriesResults.length}>
