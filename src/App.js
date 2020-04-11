@@ -1,10 +1,14 @@
 /**
  * TODO:
- * - Allow scroll.
+ * - Search component text overflow.
+ * - Fullscreen list grid container center.
+ * - Responsive design.
+ * - Left drawer content.
+ * - Loading screen before API response.
  */
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as moviesActions from './action/moviesAction';
 import * as serialsActions from './action/serialsAction';
@@ -15,7 +19,6 @@ import {
 	getOnTheAirSerials,
 	getTopRatedSerials,
 	getPopularSerials,
-	getLatestMovies,
 	getUpComingMovies,
 	getAiringTodaySerials,
 } from './services';
@@ -27,9 +30,7 @@ import FullscreenList from './containers/FullscreenList';
 import DetailsPage from './containers/DetailsPage';
 import FullScreenVideoPlayer from './components/FullScreenVideoPlayer';
 
-const RootContainer = styled.div`
-	background: #999;
-`;
+const RootContainer = styled.div``;
 
 const App = ({
 	setNowPlayingMovies,
@@ -68,16 +69,20 @@ const App = ({
 			<RootContainer>
 				<Switch>
 					<Route exact path='/' component={Home} />
-					<Route path='/gallery/:type/:content' component={FullscreenList} />
-					<Route path='/trailer/:type/:id' component={FullScreenVideoPlayer} />
+					<Route
+						path='/gallery/:type/:content'
+						component={FullscreenList}
+					/>
+					<Route
+						path='/trailer/:type/:id'
+						component={FullScreenVideoPlayer}
+					/>
 					<Route path='/:type/:id' component={DetailsPage} />
 				</Switch>
 			</RootContainer>
 		</Router>
 	);
 };
-
-const mapStateToProps = {};
 
 const mapDispatchToProps = {
 	...moviesActions,

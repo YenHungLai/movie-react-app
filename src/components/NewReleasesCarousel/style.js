@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const CarouselContainer = styled.div`
 	margin: auto;
-	width: ${props => props.containerWidth};
+	width: ${(props) => props.containerWidth};
 `;
 
 export const CarouselItemWrapper = styled.div`
@@ -18,6 +18,7 @@ export const Title = styled.h1`
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
+	white-space: nowrap;
 `;
 
 export const ReleaseDate = styled.div`

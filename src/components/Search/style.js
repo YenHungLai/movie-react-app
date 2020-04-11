@@ -49,13 +49,12 @@ export const MovieCard = styled.li`
 export const MovieDetails = styled.div`
 	display: flex;
 	margin-left: 1em;
-	white-space: nowrap;
-	// Not trigerring.
 	max-width: 285px;
-	overflow: hidden;
-	text-overflow: ellipsis;
 	& > p {
 		font-weight: bold;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
 	}
 `;
 
