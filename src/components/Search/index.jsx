@@ -8,7 +8,27 @@ import {
 	MovieDetails,
 	Section,
 } from './style';
-import { connect } from 'react-redux';
+
+const ResultItemWrapper = ({
+	type,
+	id,
+	name,
+	title,
+	release_date,
+	first_air_date,
+	poster_path,
+}) => (
+	<Link to={`/${type}/${id}`} key={id}>
+		<MovieCard>
+			<img src={poster_path} width='60px' />
+			<MovieDetails>
+				<p>
+					{title || name} ({(release_date || first_air_date).slice(0, 4)})
+				</p>
+			</MovieDetails>
+		</MovieCard>
+	</Link>
+);
 
 const Suggestions = ({ contentPool, query }) => {
 	const movieResults = contentPool.filter(
@@ -18,43 +38,27 @@ const Suggestions = ({ contentPool, query }) => {
 		(item) => item.name && item.name.toLowerCase().includes(query)
 	);
 
-	return (
-		<SuggestionsContainer show={movieResults.length || seriesResults.length}>
-			<Section show={movieResults.length}>movies</Section>
-			<ul>
-				{movieResults.slice(0, 3).map((item) => (
-					<Link to={`/movies/${item.id}`} key={item.id}>
-						<MovieCard>
-							<img src={item.poster_path} width='60px' />
-							<MovieDetails>
-								<p>
-									{item.title} ({item.release_date.slice(0, 4)})
-								</p>
-							</MovieDetails>
-						</MovieCard>
-					</Link>
-				))}
-			</ul>
-			<Section show={seriesResults.length}>series</Section>
-			<ul>
-				{seriesResults.slice(0, 3).map((item) => (
-					<Link to={`/series/${item.id}`} key={item.id}>
-						<MovieCard>
-							<img src={item.poster_path} width='60px' />
-							<MovieDetails>
-								<p>
-									{item.name} ({item.first_air_date.slice(0, 4)})
-								</p>
-							</MovieDetails>
-						</MovieCard>
-					</Link>
-				))}
-			</ul>
-		</SuggestionsContainer>
-	);
+	if (query)
+		return (
+			<SuggestionsContainer show={movieResults.length || seriesResults.length}>
+				<Section show={movieResults.length}>movies</Section>
+				<ul>
+					{movieResults.slice(0, 3).map((item) => (
+						<ResultItemWrapper type='movies' {...item} />
+					))}
+				</ul>
+				<Section show={seriesResults.length}>series</Section>
+				<ul>
+					{seriesResults.slice(0, 3).map((item) => (
+						<ResultItemWrapper type='series' {...item} />
+					))}
+				</ul>
+			</SuggestionsContainer>
+		);
+	else return <></>;
 };
 
-const Search = ({ contentPool, homePageContent }) => {
+const Search = ({ contentPool }) => {
 	const [input, setInput] = useState();
 
 	const handleChange = (e) => {
@@ -66,13 +70,9 @@ const Search = ({ contentPool, homePageContent }) => {
 		<SearchContainer>
 			<i className='fas fa-search'></i>
 			<MovieSearch onChange={handleChange} type='search' placeholder='Search' />
-			{input && <Suggestions contentPool={contentPool} query={input} />}
+			<Suggestions contentPool={contentPool} query={input} />
 		</SearchContainer>
 	);
 };
 
-const mapStateToProps = (state) => ({
-	homePageContent: state.ui.homePageContent,
-});
-
-export default connect(mapStateToProps)(Search);
+export default Search;
