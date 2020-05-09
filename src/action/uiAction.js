@@ -1,13 +1,20 @@
-export const setHomePageContent = payload => {
+export const setHomePageContent = (payload) => {
 	return {
 		type: 'SET_HOME_PAGE_CONTENT',
-		payload
+		payload,
 	};
 };
 
-export const setShowLeftDrawer = payload => {
+export const setShowLeftDrawer = (payload) => {
 	return {
 		type: 'SET_SHOW_LEFT_DRAWER',
-		payload
+		payload,
+	};
+};
+
+export const setWindowDimension = (payload) => {
+	return {
+		type: 'SET_WINDOW_DIMENSION',
+		payload,
 	};
 };

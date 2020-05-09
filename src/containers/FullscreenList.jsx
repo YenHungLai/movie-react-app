@@ -3,10 +3,10 @@ import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 // Components
-import { BaseContainer } from '../components/shared';
-import FullscreenGrid from '../components/FullscreenGrid';
-import GridSearch from '../components/GridSearch';
-import BackButton from '../components/BackButton';
+import { BaseContainer } from 'components/shared';
+import FullscreenGrid from 'components/FullscreenGrid';
+import GridSearch from 'components/GridSearch';
+import BackButton from 'components/BackButton';
 
 const FullscreenListContainer = styled(BaseContainer)`
 	padding: 1em;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const HeaderContainer = styled.div`
-	grid-column: 2/3;
+	grid-column: 2/4;
 	display: flex;
 	align-items: center;
 	color: #999;

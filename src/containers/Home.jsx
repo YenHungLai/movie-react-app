@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 // Components
-import { BaseContainer } from '../components/shared';
-import LeftDrawer from '../components/LeftDrawer';
-import ClickableLeftDrawer from '../components/ClickableLeftDrawer';
-import RightDrawer from '../components/RightDrawer';
-import Header from '../components/Header';
-import MainContent from '../components/MainContent';
+import { BaseContainer } from 'components/shared';
+import LeftDrawer from 'components/LeftDrawer';
+import RightDrawer from 'components/RightDrawer';
+import Header from 'components/Header';
+import MainContent from 'components/MainContent';
 
 const HomeContainer = styled(BaseContainer)`
 	display: grid;
@@ -19,7 +18,6 @@ const Home = () => {
 		<HomeContainer>
 			<Header />
 			<LeftDrawer />
-			<ClickableLeftDrawer />
 			<RightDrawer />
 			<MainContent />
 		</HomeContainer>

@@ -15,7 +15,7 @@ import {
 	PATH_TV,
 	PATH_VIDEOS,
 	PATH_CREDITS,
-} from './constants';
+} from './constants.js';
 
 export const getNowPlayingMovies = async () => {
 	const {

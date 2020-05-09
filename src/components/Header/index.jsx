@@ -4,11 +4,13 @@ import { setHomePageContent } from '../../action/uiAction';
 // Components
 import Navbar from '../Navbar';
 import Search from '../Search';
+import HamburgerMenu from '../HamburgerMenu';
 import { HeaderContainer, PremiumIcon } from './style';
 
-const Header = ({ popularMovies, popularSerials }) => {
+const Header = ({ popularMovies, popularSerials, windowDimension }) => {
 	// TODO: what should be the pool.
 	const contentPool = popularMovies.concat(popularSerials);
+	const { innerWidth } = windowDimension;
 
 	return (
 		<HeaderContainer>
@@ -18,6 +20,7 @@ const Header = ({ popularMovies, popularSerials }) => {
 				<i className='far fa-gem'></i>
 				<p>premium</p>
 			</PremiumIcon>
+			{innerWidth <= 1100 && <HamburgerMenu />}
 		</HeaderContainer>
 	);
 };
@@ -26,6 +29,7 @@ const mapStateToProps = (state) => ({
 	showLeftDrawer: state.ui.showLeftDrawer,
 	popularMovies: state.movies.popular,
 	popularSerials: state.serials.popular,
+	windowDimension: state.ui.windowDimension,
 });
 
 const mapDispatchToProps = {
