@@ -5,7 +5,7 @@ const MainContentContainer = styled.div`
 	padding: 0 0.7em 1em;
 	background-color: #13151b;
 	color: white;
-	grid-column: 2 / 3;
+	grid-column: ${({ expand }) => (expand ? '1/3' : '2/3')};
 	grid-row: 2 / 3;
 	transition: padding 0.2s ease-in;
 `;

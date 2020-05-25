@@ -8,7 +8,7 @@ const LeftDrawerContainer = styled.div`
 	grid-column: 1/2;
 	padding: 1em 2em;
 	transition: all 0.2s ease-in-out;
-	position: absolute;
+	position: ${({ isStatic }) => (isStatic ? 'static' : 'absolute')};
 	left: ${({ showLeftDrawer }) => (showLeftDrawer ? 0 : '-15%')};
 	opacity: ${({ showLeftDrawer }) => (showLeftDrawer ? 1 : 0)};
 	z-index: 10;
@@ -48,4 +48,11 @@ const NavLinks = styled(Link)`
 	}
 `;
 
-export { LeftDrawerContainer, CloseBtn, ContentContainer, Title, NavContainer, NavLinks };
+export {
+	LeftDrawerContainer,
+	CloseBtn,
+	ContentContainer,
+	Title,
+	NavContainer,
+	NavLinks,
+};

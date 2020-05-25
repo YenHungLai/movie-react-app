@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 // Components
 import { BaseContainer } from 'components/shared';
@@ -9,13 +10,18 @@ import MainContent from 'components/MainContent';
 
 const HomeContainer = styled(BaseContainer)`
 	display: grid;
-	grid-template-columns: 15% 65% 20%;
+	grid-template-columns: ${({ showDrawer }) =>
+		showDrawer ? '80% 20%' : '15% 65% 20%'};
 	grid-template-rows: 50px 1fr;
 `;
 
 const Home = () => {
+	const innerWidth = useSelector(
+		(state) => state.ui.windowDimension.innerWidth
+	);
+
 	return (
-		<HomeContainer>
+		<HomeContainer showDrawer={innerWidth <= 1100}>
 			<Header />
 			<LeftDrawer />
 			<RightDrawer />

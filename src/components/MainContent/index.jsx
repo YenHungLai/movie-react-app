@@ -19,6 +19,8 @@ const MainContent = ({
 	onTheAirSerials,
 	topRatedSerials,
 	homePageContent,
+	showLeftDrawer,
+	innerWidth,
 }) => {
 	const sliderRef = useRef();
 
@@ -27,11 +29,13 @@ const MainContent = ({
 		else sliderRef.current.slickPrev();
 	};
 
-	const newReleases = homePageContent === 'movies' ? nowPlayingMovies : onTheAirSerials;
-	const topRated = homePageContent === 'movies' ? topRatedMovies : topRatedSerials;
+	const newReleases =
+		homePageContent === 'movies' ? nowPlayingMovies : onTheAirSerials;
+	const topRated =
+		homePageContent === 'movies' ? topRatedMovies : topRatedSerials;
 
 	return (
-		<MainContentContainer>
+		<MainContentContainer expand={innerWidth <= 1100}>
 			<FlexContainer>
 				<Title>new releases</Title>
 			</FlexContainer>
@@ -71,6 +75,7 @@ const mapStateToProps = (state) => ({
 	topRatedSerials: state.serials.topRated,
 	homePageContent: state.ui.homePageContent,
 	showLeftDrawer: state.ui.showLeftDrawer,
+	innerWidth: state.ui.windowDimension.innerWidth,
 });
 
 export default connect(mapStateToProps)(MainContent);

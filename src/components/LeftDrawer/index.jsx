@@ -10,7 +10,12 @@ import {
 import { connect } from 'react-redux';
 import { setShowLeftDrawer } from '../../action/uiAction';
 
-const LeftDrawer = ({ showLeftDrawer, setShowLeftDrawer, homePageContent, windowDimension }) => {
+const LeftDrawer = ({
+	showLeftDrawer,
+	setShowLeftDrawer,
+	homePageContent,
+	windowDimension,
+}) => {
 	const handleClick = () => {
 		setShowLeftDrawer(false);
 	};
@@ -19,7 +24,10 @@ const LeftDrawer = ({ showLeftDrawer, setShowLeftDrawer, homePageContent, window
 	const { innerWidth } = windowDimension;
 
 	return (
-		<LeftDrawerContainer showLeftDrawer={showLeftDrawer} test id='test'>
+		<LeftDrawerContainer
+			showLeftDrawer={showLeftDrawer}
+			isStatic={innerWidth >= 1100}
+		>
 			<CloseBtn onClick={handleClick} show={innerWidth <= 1100}>
 				<i className='fas fa-chevron-left fa-lg'></i>
 			</CloseBtn>
@@ -29,7 +37,9 @@ const LeftDrawer = ({ showLeftDrawer, setShowLeftDrawer, homePageContent, window
 					<NavLinks to={`/gallery/${homePageContent}/new-releases`}>
 						new releases
 					</NavLinks>
-					<NavLinks to={`/gallery/${homePageContent}/coming-soon`}>coming soon</NavLinks>
+					<NavLinks to={`/gallery/${homePageContent}/coming-soon`}>
+						coming soon
+					</NavLinks>
 					<NavLinks to={`/gallery/${homePageContent}/popular`}>
 						popular {contentName}
 					</NavLinks>
